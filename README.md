@@ -1,4 +1,4 @@
-# Personalized Natural Language Interface
+# 🧍 Personalized Natural Language Interface
 
 A user interface application for fine-tuning open-source text-to-speech (TTS) and speech-to-text (STT) models to specific language domains, locally. The system allows users to create personalized voice profiles by providing easy methods for collecting speech data, fine-tuning models on their own voice, and evaluating the results.
 
@@ -164,3 +164,5 @@ The project is licensed under the MIT license (https://opensource.org/license/mi
 ## 🔮 Future Work
 
 Due to the immense computational power required to host all models at once. The intended final product where both STT and TTS were finetuned at once from LLM generetaded prompts was never fully implemented. Finalizing this pipeline would be the main goal for future work.
+
+> 💡 **Note:** This repo was previously on gitlab. Which explains the commit history.
