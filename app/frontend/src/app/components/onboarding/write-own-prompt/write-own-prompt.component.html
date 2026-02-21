@@ -1,0 +1,83 @@
+
+<div class="flex flex-col h-full gap-4">
+  <!-- Write Script Mode -->
+  <div *ngIf="mode === 'write'" class="flex flex-col h-full gap-4">
+    <h3 class="text-xl font-semibold text-center">Write Your Own Script</h3>
+    <p class="text-slate-500 text-center text-sm">Write a script below, optionally choose from saved scripts, and click "Save &amp; Record" to proceed.</p>
+
+    <div class="flex flex-col gap-2">
+      <p-button [label]="showScriptSelector ? 'Hide Saved Scripts' : 'Load Saved Script'" (onClick)="toggleScriptSelector()" [disabled]="loadingScripts" severity="secondary" size="small"></p-button>
+      
+      <div *ngIf="showScriptSelector && !loadingScripts" class="flex flex-col gap-1 max-h-40 overflow-y-auto border border-slate-200 rounded p-2">
+        <p *ngIf="savedScripts.length === 0" class="text-slate-400 text-sm p-2">No saved scripts found.</p>
+        <button *ngFor="let script of savedScripts"
+                class="text-left p-2 hover:bg-blue-50 rounded text-sm transition-colors"
+                (click)="loadScript(script.name, script.text)">
+          {{ script.name }}
+        </button>
+      </div>
+      <p *ngIf="loadingScripts" class="text-sm text-slate-400">Loading scripts...</p>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="scriptName" class="font-medium text-sm">Script Name</label>
+      <input pInputText id="scriptName" [(ngModel)]="scriptName" placeholder="e.g., examplename" class="w-full" />
+    </div>
+
+    <div class="flex flex-col gap-2 flex-1">
+      <label for="scriptText" class="font-medium text-sm">Script Text</label>
+      <textarea pTextarea id="scriptText" [(ngModel)]="scriptText" placeholder="Enter the script you want to record..." class="w-full h-full resize-none" rows="5"></textarea>
+    </div>
+
+    <div class="text-center text-sm text-slate-600" *ngIf="!showPreview">{{ status }}</div>
+
+    <!-- Buttons row -->
+    <div class="flex justify-end gap-4 mt-auto">
+      <p-button label="Cancel" (onClick)="cancelAndClose()" severity="secondary"></p-button>
+      <p-button label="Save & Record" (onClick)="goToRecord()" [disabled]="!scriptText.trim() || !scriptName.trim()" severity="success"></p-button>
+    </div>
+  </div>
+
+  <!-- Record Mode -->
+  <div *ngIf="mode === 'record'" class="flex flex-col h-full gap-4">
+    <h3 class="text-xl font-semibold text-center">Record Script: {{ scriptName }}</h3>
+    
+    <div class="bg-slate-50 p-4 rounded border border-slate-200 max-h-40 overflow-y-auto">
+        <p class="text-slate-800 whitespace-pre-wrap">{{ scriptText }}</p>
+    </div>
+
+    <!-- Recording state -->
+    <div *ngIf="recording" class="flex flex-col items-center justify-center py-4 bg-blue-50 rounded-lg">
+      <div class="flex items-center gap-3">
+        <div class="w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
+        <span class="text-2xl font-mono text-blue-900">{{ elapsedTime | secondsToMmss }}</span>
+      </div>
+    </div>
+
+    <div *ngIf="showPreview" class="flex flex-col items-center justify-center py-4 bg-slate-50 rounded-lg">
+        <span class="text-xl font-mono text-slate-700">Duration: {{ elapsedTime | secondsToMmss }}</span>
+    </div>
+
+    <!-- Controls -->
+    <div *ngIf="!showPreview" class="flex justify-center gap-4 mt-auto mb-8">
+      <p-button label="Activate Mic" (onClick)="activateMic()" [disabled]="micActive" severity="secondary"></p-button>
+      <p-button label="Record" (onClick)="startRecording()" [disabled]="!micActive || recording" severity="danger" icon="pi pi-circle-fill"></p-button>
+      <p-button [label]="paused ? 'Resume' : 'Pause'" (onClick)="pauseOrResume()" [disabled]="!recording" severity="warn" icon="pi pi-pause"></p-button>
+      <p-button label="Finish" (onClick)="finishRecording()" [disabled]="!recording && !chunks.length" severity="success" icon="pi pi-check"></p-button>
+    </div>
+
+    <!-- Preview -->
+    <div *ngIf="showPreview" class="flex flex-col gap-4 mt-auto">
+      <h4 class="text-lg font-medium">Preview</h4>
+      <app-audio-player [src]="recordingPreviewUrl" [buttonBottom]="false"></app-audio-player>
+      <div class="flex justify-end gap-4 mt-4">
+        <p-button label="Discard" (onClick)="discardRecording()" severity="danger" [outlined]="true"></p-button>
+        <p-button label="Save" (onClick)="saveRecording()" severity="success"></p-button>
+      </div>
+    </div>
+    
+    <div class="flex justify-start mt-4" *ngIf="!recording && !showPreview">
+        <p-button label="Back to Edit" (onClick)="mode='write'" severity="secondary" [text]="true" icon="pi pi-arrow-left"></p-button>
+    </div>
+  </div>
+</div>

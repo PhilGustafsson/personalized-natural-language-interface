@@ -1,0 +1,21 @@
+<div class="flex items-center gap-4 w-full bg-slate-50 p-3 rounded-lg border border-slate-200">
+    <!-- Play/Pause Button (Left) -->
+    <ng-container *ngIf="!buttonBottom">
+        <ng-container *ngTemplateOutlet="playButton"></ng-container>
+    </ng-container>
+
+    <!-- Waveform -->
+    <div class="flex-1 relative h-12">
+        <div #waveformContainer class="w-full h-full"></div>
+        <span class="absolute right-0 bottom-0 text-xs text-slate-500 bg-white/80 px-1 rounded pointer-events-none">{{ formatTime(currentTime) }}</span>
+    </div>
+</div>
+
+<!-- Button Bottom Layout -->
+<div *ngIf="buttonBottom" class="flex justify-center mt-2">
+    <ng-container *ngTemplateOutlet="playButton"></ng-container>
+</div>
+
+<ng-template #playButton>
+    <p-button [icon]="isPlaying ? 'pi pi-pause' : 'pi pi-play'" (onClick)="togglePlay()" [rounded]="true" size="small"></p-button>
+</ng-template>

@@ -1,0 +1,28 @@
+<div class="flex flex-col h-full gap-4">
+    <div *ngIf="mode === 'menu'" class="flex flex-col items-center justify-center h-full gap-6">
+      <h3 class="text-2xl font-light">Text to Speech</h3>
+
+      <div class="flex gap-4">
+        <p-button label="Write own text to be read" (onClick)="startWrite()" size="large"></p-button>
+        <p-button label="Evaluate audio" (onClick)="startEvaluate()" size="large" severity="secondary"></p-button>
+      </div>
+    </div>
+
+    <div *ngIf="mode === 'write'" class="h-full flex flex-col">
+      <div class="flex-1 overflow-auto">
+          <app-write-own-text></app-write-own-text>
+      </div>
+      <div class="mt-4 flex justify-end">
+          <p-button label="Back" (onClick)="mode='menu'" severity="secondary" [text]="true" icon="pi pi-arrow-left"></p-button>
+      </div>
+    </div>
+
+    <div *ngIf="mode === 'evaluate'" class="h-full flex flex-col">
+      <div class="flex-1 overflow-auto">
+          <app-evaluate-audio></app-evaluate-audio>
+      </div>
+      <div class="mt-4 flex justify-end">
+          <p-button label="Back" (onClick)="mode='menu'" severity="secondary" [text]="true" icon="pi pi-arrow-left"></p-button>
+      </div>
+    </div>
+</div>

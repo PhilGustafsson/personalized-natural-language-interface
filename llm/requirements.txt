@@ -1,0 +1,6 @@
+vllm==0.6.3.post1
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+pydantic==2.10.3
+transformers==4.48.0
+torch==2.4.0

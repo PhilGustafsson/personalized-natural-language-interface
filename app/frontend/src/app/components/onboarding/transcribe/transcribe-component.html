@@ -1,0 +1,57 @@
+<div class="flex flex-col h-full gap-4">
+  <!-- Mode Selection (Only if mode is choose) -->
+  <div *ngIf="mode === 'choose'" class="flex flex-col items-center justify-center h-full gap-6">
+    <h3 class="text-2xl font-light">Choose mode</h3>
+    <div class="flex gap-4">
+        <p-button label="Transcribe (record audio)" (onClick)="selectMode('transcribe')" size="large"></p-button>
+        <p-button label="Write own prompt" (onClick)="selectMode('write')" size="large" severity="secondary"></p-button>
+    </div>
+    <p class="text-slate-500">Select a mode to continue.</p>
+  </div>
+
+  <!-- Transcribe Mode -->
+  <div *ngIf="mode === 'transcribe'" class="flex flex-col h-full">
+    <h3 class="text-xl font-semibold mb-4 text-center">Transcribe — Record audio</h3>
+
+    <!-- Recording state with visual indicator -->
+    <div *ngIf="recording" class="flex flex-col items-center justify-center py-8 bg-blue-50 rounded-lg mb-4">
+      <div class="flex items-center gap-3">
+        <div class="w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
+        <span class="text-2xl font-mono text-blue-900">{{ elapsedTime | secondsToMmss }}</span>
+      </div>
+    </div>
+
+    <!-- Show elapsed time in preview -->
+    <div *ngIf="showPreview" class="flex flex-col items-center justify-center py-8 bg-slate-50 rounded-lg mb-4">
+        <span class="text-xl font-mono text-slate-700">Duration: {{ elapsedTime | secondsToMmss }}</span>
+    </div>
+
+    <!-- Controls when not in preview -->
+    <div *ngIf="!showPreview" class="flex justify-center gap-4 mt-auto mb-8">
+      <p-button label="Activate Microphone" (onClick)="activateMic()" [disabled]="micActive" severity="secondary"></p-button>
+      <p-button label="Record" (onClick)="startRecording()" [disabled]="!micActive || recording" severity="danger" icon="pi pi-circle-fill"></p-button>
+      <p-button [label]="paused ? 'Resume' : 'Pause'" (onClick)="pauseOrResume()" [disabled]="!recording" severity="warn" icon="pi pi-pause"></p-button>
+      <p-button label="Finish and Preview" (onClick)="finishRecording()" [disabled]="!recording && !chunks.length" severity="success" icon="pi pi-check"></p-button>
+    </div>
+
+    <!-- Preview controls -->
+    <div *ngIf="showPreview" class="flex flex-col gap-4 mt-auto">
+      <h4 class="text-lg font-medium">Preview your recording</h4>
+      <app-audio-player [src]="recordingPreviewUrl" [buttonBottom]="false"></app-audio-player>
+      <div class="flex justify-end gap-4 mt-4">
+        <p-button label="Discard and Re-record" (onClick)="discardRecording()" severity="danger" [outlined]="true"></p-button>
+        <p-button label="Save Recording" (onClick)="saveRecording()" severity="success"></p-button>
+      </div>
+    </div>
+    
+    <div class="flex justify-between mt-4 pt-4 border-t border-slate-100">
+        <p-button label="Back" (onClick)="backToModes()" [disabled]="recording" severity="secondary" [text]="true"></p-button>
+        <p-button label="Close" (onClick)="cancelAndClose()" [disabled]="recording" severity="secondary" [text]="true"></p-button>
+    </div>
+  </div>
+
+  <!-- Write Own Prompt Mode -->
+  <div *ngIf="mode === 'write'" class="h-full">
+      <app-write-own-prompt (close)="backToModes()"></app-write-own-prompt>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="flex flex-col gap-6 max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-sm">
+    <h1 class="text-3xl font-bold text-slate-800">Download Model</h1>
+
+    <div class="space-y-4">
+        @if (downloadState() == DownloadState.Ready) {
+            <!-- Display which models need to be downloaded. -->
+            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 text-blue-900">
+                @if (!isTtsDownloaded() && !isSttDownloaded()) {
+                    <p>
+                        The base models for text-to-speech and speech-to-text are not 
+                        on your system and need to be downloaded. 
+                    </p>
+                }
+                @else if (!isTtsDownloaded()) {
+                    <p>
+                        The base model for text-to-speech is not on your system and 
+                        needs to be downloaded.
+                    </p>
+                }
+                @else {
+                    <p>
+                        The base model for speech-to-text is not on your system and 
+                        needs to be downloaded.
+                    </p>
+                }
+            </div>
+        }
+        @else {
+            <!-- Progress bar. -->
+             <div class="space-y-2">
+                 @if (downloadState() == DownloadState.Downloading) {
+                    <p class="text-slate-600 font-medium">Downloading models... This can take a while</p>
+                 }
+                 @else {
+                    <p class="text-green-600 font-medium">Download complete</p>
+                 }
+                 <p-progressBar [value]="progress()"></p-progressBar>
+             </div>
+        }
+    </div>
+
+
+    <div class="flex justify-end gap-4 mt-4">
+        <p-button label="Cancel" (onClick)="cancel.emit()" severity="secondary" [disabled]="downloadState() == DownloadState.Downloading"></p-button>
+
+        @switch (downloadState()) {
+            @case (DownloadState.Ready) {
+                <p-button label="Download models" (onClick)="startDownload()"></p-button>
+            }
+            @case (DownloadState.Downloading) {
+                <p-button label="Downloading models..." [disabled]="true"></p-button>
+            }
+            @case (DownloadState.Complete) {
+                <p-button label="Continue" (onClick)="ok.emit()"></p-button>
+            }
+        }
+    </div>
+</div>
+
+

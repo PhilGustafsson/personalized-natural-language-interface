@@ -1,0 +1,52 @@
+<div class="flex flex-col items-center justify-center min-h-screen bg-slate-50 p-4">
+  <div class="w-full max-w-4xl bg-white rounded-xl shadow-lg p-8">
+    @switch (currentStep()) {
+        @case (OnboardingSteps.CreateProfile) {
+            <app-new-profile #newProfileRef (ok)="nextStep($event)" (cancel)="cancel(true)"></app-new-profile>
+        }
+        @case (OnboardingSteps.ProfileCreated) {
+            <app-profile-created 
+                [profileID]="profileService.profileID()!"
+                [username]="profileService.profileUsername()"
+                (ok)="nextStep()" 
+                (cancel)="cancel()">
+            </app-profile-created>
+        }
+        @case (OnboardingSteps.DownloadModel) {
+            <app-download-model
+                (ok)="nextStep()" 
+                (cancel)="cancel()">
+            </app-download-model>
+        }
+        @case (OnboardingSteps.MicCheck) {
+            <app-audio-recorder></app-audio-recorder>
+            <div class="flex justify-end gap-4 mt-6">
+                <p-button label="Cancel" (onClick)="cancel()" severity="secondary"></p-button>
+                <p-button label="Next" (onClick)="nextStep()"></p-button>
+            </div>
+        }
+        @case (OnboardingSteps.ChooseDomain) {
+            <app-choose-domain (selected)="onDomainSelected($event)"></app-choose-domain>
+        }
+        @case (OnboardingSteps.GeneratePrompts) {
+            <app-generate-prompts 
+                (promptsGenerated)="onGeneratePromptsComplete()"
+                (cancel)="onGeneratePromptsCancel()">
+            </app-generate-prompts>
+        }
+        @case (OnboardingSteps.Prompt) {
+             <app-main-prompt-view (onCompleted)="nextStep()"></app-main-prompt-view>
+        }
+        @case (OnboardingSteps.FineTune) {
+             <app-fine-tuning (ok)="nextStep()" (cancel)="cancel()"></app-fine-tuning>
+        }
+        @case (OnboardingSteps.Evaluation) {
+             <app-evaluation></app-evaluation>
+             <div class="flex justify-end gap-4 mt-6">
+                <p-button label="Skip" (onClick)="endPersonalization()" severity="secondary"></p-button>
+                <p-button label="Finish" (onClick)="nextStep()"></p-button>
+             </div>
+        }
+    }
+  </div>
+</div>

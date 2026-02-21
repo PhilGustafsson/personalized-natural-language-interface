@@ -1,0 +1,24 @@
+<div class="flex flex-col gap-6 max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-sm">
+    <div *ngIf="mode === 'menu'" class="flex flex-col gap-6">
+      <h2 class="text-3xl font-bold text-slate-800">Select Action</h2>
+      <p *ngIf="username" class="text-lg text-blue-600 font-medium">Profile: {{ username }}</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <p-button label="Speech to text" (onClick)="startStt()" styleClass="w-full h-full p-4 text-lg"></p-button>
+        <p-button label="Text to speech" (onClick)="startTts()" styleClass="w-full h-full p-4 text-lg"></p-button>
+      </div>
+
+      <div class="flex justify-end gap-4 mt-4">
+        <p-button label="Back" (onClick)="goBack()" severity="secondary"></p-button>
+        <p-button label="Cancel" (onClick)="cancelToMain()" severity="danger"></p-button>
+      </div>
+    </div>
+
+    <div *ngIf="mode === 'stt'">
+      <app-transcribe (close)="goBack()"></app-transcribe>
+    </div>
+
+    <div *ngIf="mode === 'tts'">
+      <app-tts-menu (close)="goBack()"></app-tts-menu>
+    </div>
+</div>

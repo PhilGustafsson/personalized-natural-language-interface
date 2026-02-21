@@ -1,0 +1,40 @@
+<div class="flex flex-col gap-4 w-full max-w-md bg-white rounded-lg p-6 shadow-lg">
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-2xl font-bold">Choose Profile</h2>
+    <p-button icon="pi pi-times" [rounded]="true" [text]="true" (onClick)="goBack()"></p-button>
+  </div>
+
+  <div *ngIf="loading" class="flex flex-col items-center gap-2 py-8">
+    <p-progressSpinner ariaLabel="loading" styleClass="w-12 h-12"></p-progressSpinner>
+    <p>Loading profiles...</p>
+  </div>
+
+  <div *ngIf="error && !loading" class="flex flex-col items-center gap-4 py-4 text-red-500">
+    <p>{{ error }}</p>
+    <p-button label="Retry" (onClick)="loadProfiles()"></p-button>
+  </div>
+
+  <div *ngIf="!loading && !error" class="flex flex-col gap-4">
+    <div *ngIf="profiles.length === 0" class="text-center py-4 text-slate-500">
+      <p>No profiles found.</p>
+      <p>Create a new profile to get started.</p>
+    </div>
+
+    <div *ngIf="profiles.length > 0" class="flex flex-col gap-2">
+      <p class="text-sm text-slate-500 mb-2">{{ profiles.length }} profile(s) available</p>
+      <div class="flex flex-col gap-2 max-h-60 overflow-y-auto">
+        <button
+          *ngFor="let profile of profiles"
+          class="w-full text-left p-3 rounded border border-slate-200 hover:bg-blue-50 hover:border-blue-300 transition-colors"
+          (click)="selectProfile(profile)"
+        >
+          {{ profile }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-end mt-4">
+    <p-button label="Cancel" (onClick)="goBack()" severity="secondary"></p-button>
+  </div>
+</div>

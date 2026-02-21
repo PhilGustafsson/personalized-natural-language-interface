@@ -1,0 +1,47 @@
+<div class="flex flex-col gap-6 max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-sm">
+  <h1 class="text-3xl font-bold text-slate-800">New Personalization Profile</h1>
+
+  <div class="space-y-4 text-slate-600">
+    <p>
+      You are about to personalize a new model. This will involve 
+      recording and analyzing sound samples of your voice.
+    </p>
+    <p>
+      This will take roughly 30 minutes to complete. Please ensure that
+      you are in a quiet location.
+    </p>
+  </div>
+
+  <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+    <h2 class="text-lg font-semibold text-blue-900 mb-2">Base Models</h2>
+    <ul class="list-disc list-inside text-blue-800 space-y-1">
+      <li>For Text-To-Speech the --insert model-- will be used as a base-model.</li>
+      <li>For Speech-To-Text the --insert model-- will be used as a base-model.</li>
+    </ul>
+  </div>
+
+  <div class="bg-amber-50 p-4 rounded-lg border border-amber-100">
+    <h2 class="text-lg font-semibold text-amber-900 mb-2">Data Consent</h2>
+    <p class="text-amber-800">
+      You can abort the personalization process at any step. The collected 
+      data, including recordings, will be deleted. 
+    </p>
+  </div>
+
+  <div class="space-y-2">
+    <h3 class="text-lg font-medium text-slate-700">Choose a username</h3>
+    <p class="text-sm text-slate-500">
+      Please enter a short username to identify your personalization profile.
+    </p>
+    <input pInputText id="username" [(ngModel)]="username" placeholder="username" class="w-full" />
+  </div>
+
+  <div *ngIf="errorMessage" class="bg-red-50 text-red-700 p-3 rounded border border-red-200">
+    <strong>Error:</strong> {{errorMessage}}
+  </div>
+
+  <div class="flex justify-end gap-4 mt-4">
+    <p-button label="Cancel" (onClick)="cancel.emit()" severity="secondary"></p-button>
+    <p-button label="Consent & Create Profile" (onClick)="onSubmit()" [disabled]="!username || username.trim().length === 0"></p-button>
+  </div>
+</div>

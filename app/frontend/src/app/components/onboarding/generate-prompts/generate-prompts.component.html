@@ -1,0 +1,172 @@
+<div class="flex flex-col gap-6 max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-sm">
+  <div class="flex items-center justify-between">
+    <h2 class="text-3xl font-bold text-slate-800">Generate Custom Prompts</h2>
+    <p-button 
+      icon="pi pi-arrow-left" 
+      (onClick)="onCancel()" 
+      [text]="true"
+      label="Back"
+    ></p-button>
+  </div>
+
+  <div *ngIf="!showPreview" class="flex flex-col gap-4">
+    <!-- Domain Input -->
+    <div class="flex flex-col gap-2">
+      <label class="font-semibold text-slate-700">Domain / Topic *</label>
+      <input 
+        type="text" 
+        [(ngModel)]="domain"
+        placeholder="e.g., AI and machine learning, medicine, finance"
+        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <div class="flex flex-wrap gap-2 mt-2">
+        <p-button 
+          *ngFor="let suggestion of domainSuggestions"
+          [label]="suggestion"
+          (onClick)="selectDomainSuggestion(suggestion)"
+          [text]="true"
+          size="small"
+          styleClass="text-sm"
+        ></p-button>
+      </div>
+    </div>
+
+    <!-- Number of Prompts -->
+    <div class="flex flex-col gap-2">
+      <label class="font-semibold text-slate-700">Number of Prompts</label>
+      <input 
+        type="number" 
+        [(ngModel)]="numPrompts"
+        [min]="5"
+        [max]="100"
+        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <small class="text-slate-500">Recommended: 20-50 prompts for training</small>
+    </div>
+
+    <!-- Language -->
+    <div class="flex flex-col gap-2">
+      <label class="font-semibold text-slate-700">Language</label>
+      <select 
+        [(ngModel)]="language"
+        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        <option *ngFor="let opt of languageOptions" [value]="opt.value">{{ opt.label }}</option>
+      </select>
+    </div>
+
+    <!-- Difficulty -->
+    <div class="flex flex-col gap-2">
+      <label class="font-semibold text-slate-700">Difficulty Level</label>
+      <select 
+        [(ngModel)]="difficulty"
+        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        <option *ngFor="let opt of difficultyOptions" [value]="opt.value">{{ opt.label }}</option>
+      </select>
+    </div>
+
+    <!-- Sentence Length -->
+    <div class="flex flex-col gap-2">
+      <label class="font-semibold text-slate-700">Sentence Length</label>
+      <select 
+        [(ngModel)]="sentenceLength"
+        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        <option *ngFor="let opt of sentenceLengthOptions" [value]="opt.value">{{ opt.label }}</option>
+      </select>
+    </div>
+
+    <!-- Style -->
+    <div class="flex flex-col gap-2">
+      <label class="font-semibold text-slate-700">Style</label>
+      <select 
+        [(ngModel)]="style"
+        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        <option *ngFor="let opt of styleOptions" [value]="opt.value">{{ opt.label }}</option>
+      </select>
+    </div>
+
+    <!-- Technical Terms -->
+    <div class="flex items-center gap-2">
+      <input 
+        type="checkbox"
+        [(ngModel)]="includeTechnicalTerms"
+        id="technical"
+        class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+      />
+      <label for="technical" class="font-semibold text-slate-700 cursor-pointer">
+        Include domain-specific technical terminology
+      </label>
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="error" class="p-4 bg-red-50 border border-red-200 rounded-lg">
+      <p class="text-red-700">{{ error }}</p>
+    </div>
+
+    <!-- Generate Button -->
+    <div class="flex gap-3 mt-4">
+      <p-button 
+        label="Generate Prompts"
+        icon="pi pi-sparkles"
+        (onClick)="generatePrompts()"
+        [disabled]="isGenerating || !domain.trim()"
+        [loading]="isGenerating"
+        styleClass="flex-1"
+      ></p-button>
+    </div>
+
+    <!-- Info Box -->
+    <div class="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+      <p class="text-sm text-blue-800">
+        <i class="pi pi-info-circle mr-2"></i>
+        The AI will generate domain-specific sentences for you to read and record. 
+        This creates personalized training data for your voice models.
+      </p>
+    </div>
+  </div>
+
+  <!-- Preview Generated Prompts -->
+  <div *ngIf="showPreview" class="flex flex-col gap-4">
+    <div class="p-4 bg-green-50 border border-green-200 rounded-lg">
+      <p class="font-semibold text-green-800">
+        <i class="pi pi-check-circle mr-2"></i>
+        Successfully generated {{ generatedPrompts.length }} prompts for "{{ domain }}"
+      </p>
+    </div>
+
+    <!-- Prompt Preview -->
+    <div class="flex flex-col gap-2">
+      <label class="font-semibold text-slate-700">Preview (first 5 prompts):</label>
+      <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg max-h-96 overflow-y-auto">
+        <ol class="list-decimal list-inside space-y-2">
+          <li *ngFor="let prompt of generatedPrompts.slice(0, 5)" class="text-slate-700">
+            {{ prompt }}
+          </li>
+        </ol>
+        <p *ngIf="generatedPrompts.length > 5" class="text-slate-500 mt-3 text-sm">
+          ... and {{ generatedPrompts.length - 5 }} more prompts
+        </p>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex gap-3">
+      <p-button 
+        label="Use These Prompts"
+        icon="pi pi-check"
+        (onClick)="usePrompts()"
+        styleClass="flex-1"
+      ></p-button>
+      <p-button 
+        label="Regenerate"
+        icon="pi pi-refresh"
+        (onClick)="regenerate()"
+        severity="secondary"
+        styleClass="flex-1"
+      ></p-button>
+    </div>
+  </div>
+</div>

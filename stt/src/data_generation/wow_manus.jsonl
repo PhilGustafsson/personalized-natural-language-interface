@@ -1,0 +1,358 @@
+{"sentence": "01", "text": "Välkommen till guiden för hur du bäst levelar din karaktär i den nya expansionen."}
+{"sentence": "02", "text": "Det första du måste tänka på är din questing route."}
+{"sentence": "03", "text": "Många gör misstaget att stanna för länge i startzonen, men du vill egentligen bara plocka upp de viktigaste questarna som ger mest XP per hour."}
+{"sentence": "04", "text": "När du väl har accepterat questen, kolla din map och sätt en waypoint."}
+{"sentence": "05", "text": "Det är viktigt att du har koll på din aggro range när du springer genom mobs."}
+{"sentence": "06", "text": "Om du drar på dig för mycket aggro kan du bli dazed och dismountad, vilket sänker din leveling speed rejält."}
+{"sentence": "07", "text": "Försök att alltid ha en health potion redo och se till att din food buff är aktiv."}
+{"sentence": "08", "text": "Om du spelar en klass med pets, som Hunter eller Warlock, se till att ditt pet alltid står på passive om du försöker skippa trash packs, annars kommer ditt pet att pulla allt i hela rummet."}
+{"sentence": "09", "text": "När du väl dingar max level börjar det riktiga spelet."}
+{"sentence": "10", "text": "Då handlar allt om att grinda gear för att öka din item level."}
+{"sentence": "11", "text": "Du kommer börja med normal dungeons, sen gå vidare till heroic, och slutligen mythic plus."}
+{"sentence": "12", "text": "Kom ihåg att alltid loota allt som droppar."}
+{"sentence": "13", "text": "Även gråa items, så kallat vendor trash, ger guld som du kommer behöva för att köpa din epic mount och flying training."}
+{"sentence": "14", "text": "Det är också smart att spara alla BoE-items, alltså Bind on Equip, för att sälja på Auction House senare."}
+{"sentence": "15", "text": "Okej lyssna nu allihopa, vi tar en genomgång inför nästa pull."}
+{"sentence": "16", "text": "Main Tank, du drar bossen till mitten av rummet och vänder honom bort från raiden."}
+{"sentence": "17", "text": "Alla Melee DPS måste stå bakom bossen för att undvika parry-haste och cleave-skada."}
+{"sentence": "18", "text": "Ranged DPS och Healers, ni sprider ut er i en halvcirkel."}
+{"sentence": "19", "text": "Vi vill inte att Chain Lightning ska hoppa mellan oss, så håll minst tio yards range."}
+{"sentence": "20", "text": "När bossen castar sin stora AoE, måste alla poppa sina defensiva cooldowns."}
+{"sentence": "21", "text": "Druider, använd Barkskin."}
+{"sentence": "22", "text": "Mages, ni kan Ice Blocka om ni tar aggro eller droppar lågt."}
+{"sentence": "23", "text": "Paladiner, håll era Bubbles redo om tanken dör, men försök att spara Battle Rez till fas två."}
+{"sentence": "24", "text": "Vi har inte råd med några onödiga deaths i början av fighten."}
+{"sentence": "25", "text": "I fas två kommer adds att spawna från sidorna."}
+{"sentence": "26", "text": "Off Tank, det är ditt jobb att plocka upp dem direkt."}
+{"sentence": "27", "text": "Använd din taunt och aoe-abilities för att bygga threat snabbt."}
+{"sentence": "28", "text": "Alla DPS byter target till addsen direkt – vi måste bursta ner dem innan de når healerna."}
+{"sentence": "29", "text": "Ingen, och jag menar ingen, får dps:a bossen medan addsen lever."}
+{"sentence": "30", "text": "Om vi missar en kick på deras cast så är det en wipe, och då måste vi springa tillbaka hela vägen från graveyard."}
+{"sentence": "31", "text": "Healers, fokusera på tank healing när bossen gör sin tank buster."}
+{"sentence": "32", "text": "Det kommer göra massiv skada."}
+{"sentence": "33", "text": "Priests, använd Pain Suppression om ni ser att tanken dippar under 30 procent hp."}
+{"sentence": "34", "text": "Och för guds skull, stå inte i elden!"}
+{"sentence": "35", "text": "Void zones dödar dig på två ticks."}
+{"sentence": "36", "text": "Move out of the fire!"}
+{"sentence": "37", "text": "Okej, är alla redo?"}
+{"sentence": "38", "text": "Ready check."}
+{"sentence": "39", "text": "Alla buffade?"}
+{"sentence": "40", "text": "Flasks och food buffs?"}
+{"sentence": "41", "text": "Bra."}
+{"sentence": "42", "text": "Pull timer på 10 sekunder."}
+{"sentence": "43", "text": "Pre-potta vid 2 sekunder."}
+{"sentence": "44", "text": "Pulling in 5, 4, 3, 2, 1, pull!"}
+{"sentence": "45", "text": "Idag ska vi prata om stat priority för Fire Mages i den nuvarande patchen."}
+{"sentence": "46", "text": "Just nu är Critical Strike din absolut viktigaste secondary stat."}
+{"sentence": "47", "text": "Detta beror på din passive ability 'Hot Streak', som gör att du får en instant cast Pyroblast om du crittar två gånger i rad."}
+{"sentence": "48", "text": "Du vill sikta på att nå en soft cap på runt 40% crit innan du börjar stacka Haste eller Mastery."}
+{"sentence": "49", "text": "Versatility är okej för ren damage output, men det skalar inte lika bra som Haste gör under Combustion-fönstret."}
+{"sentence": "50", "text": "När du poppar Combustion har du 100% crit chance, vilket gör att din Mastery: Ignite tickar för extremt höga siffror."}
+{"sentence": "51", "text": "Därför är din 'BiS', alltså Best in Slot, trinket den som ger en massiv Intelligence-proc tillsammans med en on-use Haste effekt."}
+{"sentence": "52", "text": "Låt oss titta på dina enchants."}
+{"sentence": "53", "text": "På vapnet vill du alltid ha den enchant som kan procca extra intellect."}
+{"sentence": "54", "text": "På dina ringar ska du alltid ha crit, inga undantag."}
+{"sentence": "55", "text": "När det gäller gems, se till att du har en Meta Gem i hjälmen om du spelar Classic, eller bara fyll alla sockets med högsta möjliga stat gems i Retail."}
+{"sentence": "56", "text": "Simuleringar, eller 'sims', visar att om du bryter ditt 4-set bonus för att ta på dig ett item med högre ilvl men sämre stats, så förlorar du ungefär 500 DPS."}
+{"sentence": "57", "text": "Det är inte värt det."}
+{"sentence": "58", "text": "Behåll ditt tier set tills du kan byta ut minst två delar samtidigt mot heroic eller mythic raid gear."}
+{"sentence": "59", "text": "Kom också ihåg hit cap och expertise cap om du spelar melee i Classic – om du missar dina abilities gör du noll skada, oavsett hur bra gear du har."}
+{"sentence": "60", "text": "Vi möter RMP – Rogue, Mage, Priest."}
+{"sentence": "61", "text": "Det här blir tufft."}
+{"sentence": "62", "text": "Jag går på Magen, försök att få en sap på Priesten."}
+{"sentence": "63", "text": "Okej, Magen blinkade, jag byter till Roguen."}
+{"sentence": "64", "text": "Han har Evasion uppe, jag kan inte stuna honom."}
+{"sentence": "65", "text": "Priesten kommer in för en fear, akta dig!"}
+{"sentence": "66", "text": "Bra dispell!"}
+{"sentence": "67", "text": "Jag har fulla dots på Magen nu."}
+{"sentence": "68", "text": "Han kommer blocka snart."}
+{"sentence": "69", "text": "Där kom Ice Block."}
+{"sentence": "70", "text": "Switcha till Priesten, switcha nu!"}
+{"sentence": "71", "text": "Jag har ingen kick, kan du stunna?"}
+{"sentence": "72", "text": "Snygg Kidney Shot!"}
+{"sentence": "73", "text": "Roguen blindade mig, jag måste trinketa."}
+{"sentence": "74", "text": "Nej vänta, jag sitter hela blinden."}
+{"sentence": "75", "text": "Spara din trinket till Smoke Bomb."}
+{"sentence": "76", "text": "Okej, jag är ute."}
+{"sentence": "77", "text": "Magen är ute ur block, men han har låg hp."}
+{"sentence": "78", "text": "Jag har mina cooldowns redo."}
+{"sentence": "79", "text": "Jag drar Recklessness och Avatar nu."}
+{"sentence": "80", "text": "Han har ingen Cauterize, han dör!"}
+{"sentence": "81", "text": "Kicken satt!"}
+{"sentence": "82", "text": "Han är tystad i 4 sekunder."}
+{"sentence": "83", "text": "Execute range!"}
+{"sentence": "84", "text": "Döda honom!"}
+{"sentence": "85", "text": "Bra jobbat!"}
+{"sentence": "86", "text": "En nere."}
+{"sentence": "87", "text": "Nu måste vi bara överleva Roguen."}
+{"sentence": "88", "text": "Han kommer försöka resetta fighten och gå in i stealth."}
+{"sentence": "89", "text": "Håll Combat."}
+{"sentence": "90", "text": "Lägg en bleed på honom så han inte kan vanisha."}
+{"sentence": "91", "text": "Akta, Priesten mind controllar mig."}
+{"sentence": "92", "text": "Kicka casten!"}
+{"sentence": "93", "text": "Nej, för sent."}
+{"sentence": "94", "text": "Purga mig!"}
+{"sentence": "95", "text": "Purga mig snabbt!"}
+{"sentence": "96", "text": "Tack."}
+{"sentence": "97", "text": "Roguen är på mig, jag har inga defensives kvar."}
+{"sentence": "98", "text": "Jag behöver en BoP eller Sacrifice."}
+{"sentence": "99", "text": "Snygg bubbla!"}
+{"sentence": "100", "text": "Vi vänder det här."}
+{"sentence": "101", "text": "GG."}
+{"sentence": "102", "text": "Hörde du vad som hände i guilden igår?"}
+{"sentence": "103", "text": "Det var helt sjukt."}
+{"sentence": "104", "text": "Vi dödade sista bossen i raiden och en Bind on Equip epic droppade."}
+{"sentence": "105", "text": "Raid leadern hade glömt att sätta på Master Loot, så det var Group Loot."}
+{"sentence": "106", "text": "En pug, alltså en random spelare vi plockade upp från LFG-kanalen, needade på itemet trots att han inte kunde använda det."}
+{"sentence": "107", "text": "Han ninjade det rakt framför näsan på oss och lämnade raiden direkt och loggade ut."}
+{"sentence": "108", "text": "Alla blev helt galna i Discord."}
+{"sentence": "109", "text": "GM skrev en ticket till supporten, men de sa att de inte kan göra något eftersom det tekniskt sett inte var en scam, bara dålig etikett."}
+{"sentence": "110", "text": "Det värsta är att det itemet är BiS för vår Main Tank."}
+{"sentence": "111", "text": "Nu måste vi farma samma raid nästa vecka och hoppas på att det droppar igen."}
+{"sentence": "112", "text": "RNG, random number generator, är verkligen inte på vår sida just nu."}
+{"sentence": "113", "text": "Förresten, har du sett priserna på consumables på Auction House?"}
+{"sentence": "114", "text": "Flasks kostar typ 200 guld styck."}
+{"sentence": "115", "text": "Jag måste börja farma örter eller minea ore om jag ska ha råd att raida på onsdag."}
+{"sentence": "116", "text": "Eller så får jag köpa en WoW Token, men det känns lite som pay-to-win."}
+{"sentence": "117", "text": "Jag funderar på att levla en alt, kanske en Druid så jag kan farma snabbare med flight form."}
+{"sentence": "118", "text": "Vad tror du?"}
+{"sentence": "119", "text": "Som Warlock måste du hålla koll på dina Soul Shards."}
+{"sentence": "120", "text": "En Rogue använder Energy och Combo Points för att göra skada."}
+{"sentence": "121", "text": "Glöm inte att buffa Arcane Intellect på alla casters."}
+{"sentence": "122", "text": "Vi behöver en Soulstone på healern ifall det blir en wipe."}
+{"sentence": "123", "text": "Kan någon summona mig?"}
+{"sentence": "124", "text": "Jag är vid Meeting Stone."}
+{"sentence": "125", "text": "Min Hearthstone är på cooldown, jag måste flyga."}
+{"sentence": "126", "text": "Akta dig för patrols, de kommer bakifrån."}
+{"sentence": "127", "text": "Vi skippar den här packen, hugg väggen till vänster."}
+{"sentence": "128", "text": "Den här dungeonen är för svår på Heroic, vi kör Normal."}
+{"sentence": "129", "text": "Har du enchantat dina bracers än?"}
+{"sentence": "130", "text": "Jag fick en legendary drop igår, helt sjukt!"}
+{"sentence": "131", "text": "Vi söker en Ranged DPS för vår core raid group."}
+{"sentence": "132", "text": "Det är lag på servern, min ping är över 500."}
+{"sentence": "133", "text": "Starta en vote kick, han är AFK."}
+{"sentence": "134", "text": "Om du ska spela Warrior måste du förstå hur Rage generation fungerar."}
+{"sentence": "135", "text": "Till skillnad från andra klasser som väntar på mana eller energy, måste du ta skada eller göra skada för att få resurser."}
+{"sentence": "136", "text": "Som Protection Warrior är din viktigaste ability Shield Block."}
+{"sentence": "137", "text": "Du måste ha 100% uptime på den för att inte ta massiv fysisk skada."}
+{"sentence": "138", "text": "Om du får slut på Rage, använd Last Stand eller Shield Wall som en panikknapp."}
+{"sentence": "139", "text": "För Arms Warriors handlar allt om Burst Windows."}
+{"sentence": "140", "text": "Du vill applicera Colossus Smash för att ignorera fiendens armor, och sen dumpar du all din Rage med Mortal Strike och Overpower."}
+{"sentence": "141", "text": "Glöm inte att använda Execute så fort bossen når 20% hälsa."}
+{"sentence": "142", "text": "Det är då du toppar mätarna."}
+{"sentence": "143", "text": "Om du drar aggro, använd Intervene på en vänlig spelare för att komma undan snabbt."}
+{"sentence": "144", "text": "Att spela Discipline Priest är svårt eftersom du måste göra skada för att heala, genom mekaniken Atonement."}
+{"sentence": "145", "text": "Innan skadan kommer in måste du sprida Power Word: Shield och Shadow Mend på gruppen."}
+{"sentence": "146", "text": "När skadan sen träffar, använder du Penance och Smite på fienden för att toppa upp allas hälsa."}
+{"sentence": "147", "text": "Det kräver att du kan bossens tidslinje utantill – så kallad proactive healing."}
+{"sentence": "148", "text": "Om du hellre vill dps:a som Shadow Priest, handlar din rotation om att bygga Insanity."}
+{"sentence": "149", "text": "Du håller uppe dina DoTs, alltså Shadow Word: Pain och Vampiric Touch."}
+{"sentence": "150", "text": "När din Insanity bar är full, går du in i Void Form."}
+{"sentence": "151", "text": "Då får du massiv Haste, men din Insanity dräneras snabbare och snabbare."}
+{"sentence": "152", "text": "Målet är att stanna i Void Form så länge som möjligt genom att spamma Void Bolt och Mind Blast."}
+{"sentence": "153", "text": "Som Rogue är din största fördel Stealth."}
+{"sentence": "154", "text": "Du väljer när fighten börjar."}
+{"sentence": "155", "text": "I PvP är din opener avgörande."}
+{"sentence": "156", "text": "Du vill ofta börja med Cheap Shot för att stuna målet, följt av Symbols of Death för att öka din skada."}
+{"sentence": "157", "text": "Om de trinketar din stun, var beredd med en Blind eller Kidney Shot."}
+{"sentence": "158", "text": "För Outlaw Rogues är det lite mer RNG, eller tur, inblandat på grund av Roll the Bones."}
+{"sentence": "159", "text": "Ibland får du bra buffs som Crit chance och Attack speed, ibland får du bara energiregeneration."}
+{"sentence": "160", "text": "Du måste veta när du ska 're-rolla' dina tärningar."}
+{"sentence": "161", "text": "Och glöm inte Blade Flurry när du slåss mot mer än en fiende; din cleave damage är bland de bästa i spelet."}
+{"sentence": "162", "text": "Många säger att Beast Mastery Hunter är en 'face roll'-klass, men att maximera din Pet uptime kräver skill."}
+{"sentence": "163", "text": "Du måste se till att ditt pet alltid har Frenzy-buffen stackad till tre genom att använda Barbed Shot vid rätt tillfälle."}
+{"sentence": "164", "text": "Använd Bestial Wrath på cooldown."}
+{"sentence": "165", "text": "Som Marksmanship spelar du oftast utan pet för att dra nytta av Lone Wolf-buffen."}
+{"sentence": "166", "text": "Din rotation kretsar kring Aimed Shot."}
+{"sentence": "167", "text": "Du får inte röra dig medan du castar den, så positionering är A och O."}
+{"sentence": "168", "text": "Använd Disengage för att skapa avstånd om en melee kommer för nära, och lägg en Freezing Trap för att CC:a en add som kommer lös."}
+{"sentence": "169", "text": "Okej, om du vill ha råd med din Legendary base item så måste vi prata guld."}
+{"sentence": "170", "text": "Att spela Auction House är som ett eget spel i sig."}
+{"sentence": "171", "text": "Det finns två sätt att bli rik: Farming eller Flipping."}
+{"sentence": "172", "text": "Om du gillar att farma rekommenderar jag Herbalism och Mining."}
+{"sentence": "173", "text": "I början av en expansion är prices på mats, alltså material, extremt höga."}
+{"sentence": "174", "text": "Du flyger runt i zonen och plockar herbs och hackar nodes."}
+{"sentence": "175", "text": "Se till att ha en Sky Golem mount så du kan plocka blommor utan att dismounta."}
+{"sentence": "176", "text": "Det ökar din gold per hour drastiskt."}
+{"sentence": "177", "text": "Om du vill flippa items krävs det kapital."}
+{"sentence": "178", "text": "Du köper billigt och säljer dyrt."}
+{"sentence": "179", "text": "Håll koll på reset days, alltså onsdagar i Europa."}
+{"sentence": "180", "text": "Då resettas alla raids och folk behöver flasks, potions och enchants."}
+{"sentence": "181", "text": "Köp upp material under helgen när priserna är låga för att folk farmar mycket, och crafta sedan consumables för att sälja på onsdag kväll när efterfrågan är som störst."}
+{"sentence": "182", "text": "Akta dig för att bli undercut."}
+{"sentence": "183", "text": "Många använder addons som automatiskt sänker priset med 1 koppar under ditt pris."}
+{"sentence": "184", "text": "Du måste sitta vid AH och 'cancel scanna' för att se till att dina auktioner alltid ligger först."}
+{"sentence": "185", "text": "Det är ett krig, men vinstmarginalerna på High-end gear och Transmog kan vara enorma."}
+{"sentence": "186", "text": "Det är alltid samma diskussion i guild-chatten: Vad är bäst, Vanilla Classic eller Retail?"}
+{"sentence": "187", "text": "De som älskar Classic pratar alltid om community och immersion."}
+{"sentence": "188", "text": "I Classic tar det tid att levla."}
+{"sentence": "189", "text": "Du måste dricka vatten efter varje mob för att få tillbaka mana."}
+{"sentence": "190", "text": "Världen känns farlig."}
+{"sentence": "191", "text": "Om du drar två mobs dör du."}
+{"sentence": "192", "text": "Gear betyder mer."}
+{"sentence": "193", "text": "Att se någon med full Tier 2 i Ironforge är respektingivande."}
+{"sentence": "194", "text": "Men mekaniskt är det enkelt."}
+{"sentence": "195", "text": "Många bossar har bara en eller två abilities."}
+{"sentence": "196", "text": "Det svåra är logistiken, att samla 40 personer och farma world buffs."}
+{"sentence": "197", "text": "Retail, å andra sidan, handlar om end-game och mechanics."}
+{"sentence": "198", "text": "Rotationerna är komplexa."}
+{"sentence": "199", "text": "En Mythic Raid Boss i dagens WoW har fler faser och mekaniker än en hel raid hade i Classic."}
+{"sentence": "200", "text": "Spelet är snabbare, mer responsivt."}
+{"sentence": "201", "text": "Vi har Mythic Plus, vilket är oändligt skalande content."}
+{"sentence": "202", "text": "Men många tycker att spelet saknar själ."}
+{"sentence": "203", "text": "Allt är automatiserat med LFG och LFR."}
+{"sentence": "204", "text": "Man pratar knappt med varandra längre eftersom man bara teleporteras till dungeonen."}
+{"sentence": "205", "text": "Personligen gillar jag Quality of Life-ändringarna i Retail."}
+{"sentence": "206", "text": "Jag orkar inte springa till fots i 40 nivåer."}
+{"sentence": "207", "text": "Jag vill ha min Flying Mount och min Transmog."}
+{"sentence": "208", "text": "Men jag saknar känslan av Server Identity som fanns förr, när man visste vem som var serverns bästa tank bara genom ryktet."}
+{"sentence": "209", "text": "Okej, vi har 30 minuter på oss att timea den här nyckeln."}
+{"sentence": "210", "text": "Ingen dör på första bossen, okej?"}
+{"sentence": "211", "text": "Tank, dra bossen mot väggen."}
+{"sentence": "212", "text": "När han castar Spirit Bolt, måste vi ha en interrupt rotation."}
+{"sentence": "213", "text": "Rogue tar första, Shaman tar andra, jag tar tredje."}
+{"sentence": "214", "text": "När fasen med symbolerna börjar, ropa ut vilken symbol ni har."
+{"sentence": "215", "text": "Flower, Leaf, Moon, Sun."}
+{"sentence": "216", "text": "Vi måste hitta den som är unik."}
+{"sentence": "217", "text": "Det är som ett pussel."}
+{"sentence": "218", "text": "Om vi gissar fel tar hela gruppen massiv skada och vi får en DoT på oss."}
+{"sentence": "219", "text": "I labyrinten måste vi följa älvan."}
+{"sentence": "220", "text": "Spring inte in i fel dimma, då teleporteras du tillbaka till start."}
+{"sentence": "221", "text": "Tank, försök att chain-pulla små mobs för att hålla percentage uppe, men dra inte eliten om vi inte har cooldowns."}
+{"sentence": "222", "text": "Sista bossen."}
+{"sentence": "223", "text": "Akta för länkarna!"}
+{"sentence": "224", "text": "Mind Link gör att ni tar skada om ni springer ifrån varandra."}
+{"sentence": "225", "text": "Spring ihop!"}
+{"sentence": "226", "text": "Nej, inte så nära tanken!"}
+{"sentence": "227", "text": "Okej, nu castar hon Acid Rain, spring ut ur cirkeln."}
+{"sentence": "228", "text": "Healers, använd Healing Tide Totem nu."}
+{"sentence": "229", "text": "Snyggt!"}
+{"sentence": "230", "text": "Vi klarade det med 2 minuter till godo."}
+{"sentence": "231", "text": "+2 upgrade på keyn!"}
+{"sentence": "232", "text": "Har du specat om till Healer än?"}
+{"sentence": "233", "text": "Den här patchen har helt förstört min class balance."}
+{"sentence": "234", "text": "Vi måste wipa medvetet för att resetta bossen."}
+{"sentence": "235", "text": "Min addon buggar ur, jag måste göra en /reload."}
+{"sentence": "236", "text": "Kan du dela questen?"}
+{"sentence": "237", "text": "Jag har inte gjort pre-questen."}
+{"sentence": "238", "text": "Det är time gated, vi kan inte fortsätta förrän nästa vecka."}
+{"sentence": "239", "text": "Han är en clicker, han använder inte keybinds."}
+{"sentence": "240", "text": "Akta, du är flaggad för PvP."}
+{"sentence": "241", "text": "Vi corpse runnar tillbaka tillsammans."}
+{"sentence": "242", "text": "Det är för mycket trash mobs i den här raiden."}
+{"sentence": "243", "text": "Har du attunat dig till MC?"}
+{"sentence": "244", "text": "Sälj det till vendorn, det är inte värt att lägga på AH."}
+{"sentence": "245", "text": "Jag behöver repa, min gear är röd."}
+{"sentence": "246", "text": "Vilken realm spelar du på?"}
+{"sentence": "247", "text": "Vi behöver mer CC, har vi en Mage som kan sheepa?"}
+{"sentence": "248", "text": "Dra en Heroism eller Bloodlust vid 30 procent."}
+{"sentence": "249", "text": "Jag fick en whisper från en gold seller."}
+{"sentence": "250", "text": "Jag har suttit och campat den här Rare Spawnen i över sex timmar nu."}
+{"sentence": "251", "text": "Respawn-timern är helt random, det kan ta allt från två till åtta timmar."}
+{"sentence": "252", "text": "Det värsta är att det är en shared tag, så om någon från motsatta factionen hinner slå den först, så får jag ingen loot."}
+{"sentence": "253", "text": "Mitt mål är att nå 500 Mounts för att få achievementen och den unika recolorn av fenixen."}
+{"sentence": "254", "text": "Just nu kör jag gamla raider på Legacy Loot Mode."}
+{"sentence": "255", "text": "Det är skönt för du får alla items som droppar, oavsett klass, men drop raten på själva mountet är fortfarande under en procent."}
+{"sentence": "256", "text": "Jag har dödat Lich King över trehundra gånger på min main och alla mina alts, men Invincible vägrar droppa."}
+{"sentence": "257", "text": "Sen har vi Transmog-runs."}
+{"sentence": "258", "text": "Jag försöker bygga ihop ett specifikt Tier-set från Legion, men axlarna vägrar visa sig."}
+{"sentence": "259", "text": "Jag måste vänta på den veckovisa reseten innan jag kan försöka igen."}
+{"sentence": "260", "text": "Det är rena tortyren, men man måste ju se bra ut."}
+{"sentence": "261", "text": "Fashion är det riktiga end-gamet, eller hur?"}
+{"sentence": "262", "text": "Vi måste ta ett snack om rostern inför nästa tier."}
+{"sentence": "263", "text": "Vi har för många spelare som inte levererar."}
+{"sentence": "264", "text": "Jag satt och kollade igenom WarcraftLogs igår kväll, och det ser inte bra ut."}
+{"sentence": "265", "text": "Vi har tre personer som konsistent ligger på gråa parses."}
+{"sentence": "266", "text": "Det duger inte om vi ska satsa på Cutting Edge den här säsongen."}
+{"sentence": "267", "text": "Det handlar inte bara om ren damage, utan om mechanic failures."}
+{"sentence": "268", "text": "Kolla på 'Damage Taken'-fliken."}
+{"sentence": "269", "text": "Den här killen tar onödig skada från void zones hela tiden, vilket dränerar healernas mana."}
+{"sentence": "270", "text": "Han dör tidigt i fighten och blir en brez-svamp."}
+{"sentence": "271", "text": "Vi kanske måste bencha honom och ta in en trial istället."}
+{"sentence": "272", "text": "Vi har en rekryteringstråd uppe på forumen och WowProgress."}
+{"sentence": "273", "text": "Vi letar efter spelare med tidigare Mythic experience och bra attendance."}
+{"sentence": "274", "text": "Det svåraste är att hitta folk som passar socialt men ändå kan prestera."}
+{"sentence": "275", "text": "'The Roster Boss' är alltid den svåraste bossen i spelet."}
+{"sentence": "276", "text": "Om folk börjar burna ut och slutar logga in, då dör guilden."}
+{"sentence": "277", "text": "Dags för den dagliga rundan."}
+{"sentence": "278", "text": "Jag måste maximera min Renown med den nya fraktionen för att låsa upp flying i zonen."}
+{"sentence": "279", "text": "Det är ett jävla grind."}
+{"sentence": "280", "text": "Jag börjar med att plocka upp det veckovisa Callings-uppdraget i covenant-huset."}
+{"sentence": "281", "text": "Sen flyger jag runt och gör World Quests."}
+{"sentence": "282", "text": "Jag prioriterar de som ger Anima eller Reputation tokens."}
+{"sentence": "283", "text": "De som ger guld är inte värda tiden."}
+{"sentence": "284", "text": "Det finns en Contract du kan köpa av en Scribe på Auction House som ger dig 10 extra rep för varje quest du gör."}
+{"sentence": "285", "text": "Det låter lite, men det addar upp över tid."}
+{"sentence": "286", "text": "Det är viktigt att inte missa World Bossen heller."}
+{"sentence": "287", "text": "Den är uppe en gång i veckan och kan droppa gear med hög Item Level, men chansen är låg."}
+{"sentence": "288", "text": "Hela systemet är time-gated, så även om jag ville spela 20 timmar i sträck så kan jag inte komma längre än vad Blizzard tillåter den här veckan."}
+{"sentence": "289", "text": "Det är en klassisk catch-up mechanic för de som inte spelar varje dag."}
+{"sentence": "290", "text": "Är du intresserad av en Boost?"}
+{"sentence": "291", "text": "Vi säljer AotC, alltså 'Ahead of the Curve', för sista bossen."}
+{"sentence": "292", "text": "Det kostar 200 000 guld."}
+{"sentence": "293", "text": "Du behöver inte göra någonting, du kan stå och vara AFK vid ingången så löser vi allt."}
+{"sentence": "294", "text": "Vi har fyra funnelers i gruppen, så om det droppar mail eller plate som du behöver kan vi trada det till dig."}
+{"sentence": "295", "text": "Vi kör också Mythic Plus 15 carries för din Great Vault reward."}
+{"sentence": "296", "text": "Vi garanterar att vi timear nyckeln."}
+{"sentence": "297", "text": "Betalning sker innan vi startar, endast guld på den här servern, inga riktiga pengar – det är emot TOS."}
+{"sentence": "298", "text": "Det är en bra affär för oss."}
+{"sentence": "299", "text": "Vi använder guldet för att betala för våra consumables och repair bills när vi progressar på mythic."}
+{"sentence": "300", "text": "Det är en hel industri nu."}
+{"sentence": "301", "text": "Trade chat är helt fylld av spam från olika communities som säljer tjänster."}
+{"sentence": "302", "text": "Vissa hatar det, men det är så ekonomin fungerar nuförtiden."}
+{"sentence": "303", "text": "Glöm allt du vet om gamla mounts."}
+{"sentence": "304", "text": "I den nya expansionen handlar allt om fysik och momentum."}
+{"sentence": "305", "text": "När du kastar dig ut från klippan måste du dyka neråt för att bygga upp hastighet."}
+{"sentence": "306", "text": "Ser du mätaren?"}
+{"sentence": "307", "text": "Det är din Vigor."}
+{"sentence": "308", "text": "Du har sex bubblor."}
+{"sentence": "309", "text": "Använd Surge Forward för att få en extra skjuts, men spamma den inte."}
+{"sentence": "310", "text": "Du måste hushålla med din energi."}
+{"sentence": "311", "text": "När du har byggt upp tillräckligt med fart börjar du lysa blått, det betyder att du regenererar Vigor medan du flyger."}
+{"sentence": "312", "text": "Det är nyckeln."}
+{"sentence": "313", "text": "Dyk ner, dra upp, dyk ner, dra upp."}
+{"sentence": "314", "text": "Vi ska flyga till toppen av berget för att hämta en Glyph."}
+{"sentence": "315", "text": "Den låser upp nya talanger i ditt flyg-träd."}
+{"sentence": "316", "text": "Akta dig för grenarna!"}
+{"sentence": "317", "text": "Om du krockar tappar du all fart och måste landa för att vänta på att Vigor ska laddas upp igen."}
+{"sentence": "318", "text": "Det finns också Dragon Races där du ska flyga genom ringar på tid."}
+{"sentence": "319", "text": "Det kräver extrem precision i kurvorna."}
+{"sentence": "320", "text": "Jag håller på med achievementsen för Loremaster just nu."}
+{"sentence": "321", "text": "Det betyder att jag måste göra varenda quest i varenda zon i hela spelet."}
+{"sentence": "322", "text": "Det är tusentals uppdrag."}
+{"sentence": "323", "text": "Vissa av dem är buggade och kräver att man läser på Wowhead för att förstå vad man ska göra."}
+{"sentence": "324", "text": "Det finns en titel som heter 'The Insane'."}
+{"sentence": "325", "text": "För att få den måste du döda goblins för att bli vän med piraterna i Bloodshield, och sen måste du döda piraterna för att bli vän med goblins igen."}
+{"sentence": "326", "text": "Det tar månader av rent dödande."}
+{"sentence": "327", "text": "Folk tror man är galen, men det är en status-symbol."}
+{"sentence": "328", "text": "En annan svår achievement är Glory of the Raider."}
+{"sentence": "329", "text": "Den kräver att man gör bossarna på ett speciellt sätt, typ 'döda bossen utan att någon i raiden blir träffad av en snöboll'."}
+{"sentence": "330", "text": "Vi brukar köra så kallade Achievement runs på lördagar där vi går tillbaka till gamla raids bara för att bocka av de här listorna."}
+{"sentence": "331", "text": "Man får ofta ett snyggt mount som belöning om man klarar alla."}
+{"sentence": "332", "text": "Många ignorerar det helt, men Pet Battles är faktiskt ganska djupt."}
+{"sentence": "333", "text": "Det handlar om type matching."}
+{"sentence": "334", "text": "Du vill inte använda ett Mechanical pet mot ett Elemental pet, då gör du knappt någon skada."}
+{"sentence": "335", "text": "Jag brukar köra med en Anubisath Idol."}
+{"sentence": "336", "text": "Han är extremt tankig och har en förmåga som heter Deflection som blockerar all inkommande skada en runda."}
+{"sentence": "337", "text": "Perfekt för att undvika fiendens stora nuke."}
+{"sentence": "338", "text": "Tillsammans med en Unborn Val'kyr som kan lägga en DoT och sen offra sig själv för att öka skadan på fienden, är det en svårslagen kombo."}
+{"sentence": "339", "text": "Just nu försöker jag klara Celestial Tournament."}
+{"sentence": "340", "text": "Det är en turnering där du inte får heala dina pets mellan matcherna."}
+{"sentence": "341", "text": "Du måste ha en bred collection av level 25 pets, minst 15 stycken som är Rare quality, för att ha en chans att kontra alla tränare du möter."}
+{"sentence": "342", "text": "Har du lootat kistan i din Great Vault den här veckan?"}
+{"sentence": "343", "text": "Min Renown är capad, jag kan inte få mer."}
+{"sentence": "344", "text": "Vi söker en Ranged för vår Mythic Roster."}
+{"sentence": "345", "text": "Kolla dina parses, du ligger under 50 procent."}
+{"sentence": "346", "text": "Jag ska bara transmogga min hjälm, den ser förskräcklig ut."}
+{"sentence": "347", "text": "Kan du länka achievementen?"}
+{"sentence": "348", "text": "Jag vill se datumet."}
+{"sentence": "349", "text": "Det är en weekly lockout på den bossen."}
+{"sentence": "350", "text": "Vi säljer Curve för 50k guld, /w för invite."}
+{"sentence": "351", "text": "Jag har slut på Vigor, jag måste landa."}
+{"sentence": "352", "text": "Den här bossen är en ren Check, har vi tillräckligt med gear?"}
+{"sentence": "353", "text": "Jag fick en Titanforged proc, helt sjukt!"}
+{"sentence": "354", "text": "Akta dig för Elite-mobben, den har miljoner HP."}
+{"sentence": "355", "text": "Jag farmar reputation med Tuskarr för att få fiske-spöt."}
+{"sentence": "356", "text": "Guilden har problem med attendance under sommaren."}
+{"sentence": "357", "text": "Är det progress ikväll eller bara farm?"}
+{"sentence": "358", "text": "Vi måste göra en split run för att geare upp våra alts."}

@@ -1,0 +1,24 @@
+<div class="flex flex-col gap-6 max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-sm">
+    <div>
+        <h1 class="text-3xl font-bold text-slate-800 mb-2">Preview Results</h1>
+        <p class="text-slate-600">The personalization is complete. Here you can try out the models.</p>
+    </div>
+
+    <div class="space-y-8">
+        <div class="bg-purple-50 p-6 rounded-lg border border-purple-100">
+            <h2 class="text-xl font-semibold text-purple-900 mb-4">Text-to-speech</h2>
+            <app-tts-interactive-test></app-tts-interactive-test>
+        </div>
+        
+        <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
+            <h2 class="text-xl font-semibold text-blue-900 mb-4">Speech-to-text</h2>
+            <app-stt-interactive-test></app-stt-interactive-test>
+        </div>
+    </div>
+
+    <div class="flex justify-end gap-4 mt-4 pt-4 border-t border-slate-100">
+        <p-button label="Delete profile" (onClick)="deleteProfile()" severity="danger" [outlined]="true"></p-button>
+        <p-button label="End personalization" (onClick)="endPersonalization()" severity="secondary"></p-button>
+        <p-button label="Evaluate models" (onClick)="goToEvaluation()"></p-button>
+    </div>
+</div>

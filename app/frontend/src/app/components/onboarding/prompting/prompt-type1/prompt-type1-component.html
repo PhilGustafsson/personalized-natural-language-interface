@@ -1,0 +1,96 @@
+<div class="flex flex-col gap-6 max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-sm">
+    @switch (currentViewState()) {
+
+        <!-- Do the prompting. -->
+        @case (ViewState.Prompt) {
+
+            <!-- The prompt to read. -->
+            <div class="space-y-6">
+                <!-- Progress -->
+                <div class="flex items-center justify-between text-sm text-slate-500">
+                    <span>Prompt {{ promptNumber() }} of {{ totalPrompts() }}</span>
+                    <p-progressBar [value]="(promptNumber() / totalPrompts()) * 100" [showValue]="false" styleClass="w-32 h-2"></p-progressBar>
+                </div>
+
+                @if (currentPromptState() == PromptState.LoadingPrompt) {
+                    <div class="text-center text-slate-500 italic">Loading prompt...</div>
+                }
+                @else {
+                    @let hidePromptHelp = currentPromptState() != PromptState.Recording && currentPromptState() != PromptState.Ready;
+                    <p class="text-center text-slate-500 text-sm" [style.visibility]="hidePromptHelp ? 'hidden' : 'visible'">Read aloud the following text</p>
+
+                    <div class="p-6 bg-slate-50 rounded-lg border border-slate-200 text-center">
+                        <p class="text-2xl font-medium text-slate-800 leading-relaxed">{{ promptText() }}</p>
+                    </div>
+
+                    <!-- Recording Controls -->
+                    <div class="flex flex-col items-center gap-4">
+                        @if (currentPromptState() == PromptState.Ready) {
+                            <div class="flex gap-3">
+                                <p-button label="Record" (onClick)="startRecording()" severity="danger" icon="pi pi-microphone"></p-button>
+                                <p-button label="Skip (Testing)" (onClick)="skipPrompt()" severity="secondary" icon="pi pi-forward"></p-button>
+                            </div>
+                        }
+                        @if (currentPromptState() == PromptState.Recording) {
+                            <p-button label="Stop" (onClick)="stopRecording()" severity="danger" icon="pi pi-stop"></p-button>
+                            <div class="flex items-center gap-4">
+                                <span class="text-red-600 font-bold animate-pulse">{{recordingTime() | secondsToMmss}}</span>
+                                <app-mic-circle-meter [level]="micLevel()"></app-mic-circle-meter>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Quality Check Controls -->
+                    @if (currentPromptState() == PromptState.ManualQualityCheck) {
+                        <div class="space-y-4 p-4 bg-amber-50 rounded border border-amber-100">
+                            <p class="font-semibold text-amber-900">Please check your recording.</p>
+                            
+                            @if (automaticCheckQuality(); as quality) {
+                                <div class="text-sm mb-2">
+                                    <p [class.text-green-600]="quality.passed" [class.text-red-600]="!quality.passed">
+                                        <strong>Auto-check:</strong> {{ quality.passed ? 'Passed' : 'Failed' }}
+                                    </p>
+                                </div>
+                            }
+
+                            <app-audio-player [src]="recordingURL()!" (onPlay)="userPlayAudio()"></app-audio-player>
+                            
+                            <div class="flex justify-end gap-4">
+                                <p-button label="Retake" (onClick)="doRetake()" severity="secondary"></p-button>
+                                <p-button label="Looks Good" (onClick)="userVerifyAudio()" [disabled]="!userCheckedAudio && manualCheckOption === 'always'"></p-button>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        }
+
+        <!-- Training State -->
+        @case (ViewState.Training) {
+            <div class="space-y-6 text-center">
+                <h2 class="text-3xl font-bold text-slate-800">Training</h2>
+                <p class="text-slate-600">You have completed all prompts!</p>
+                
+                @if (isTrainingStarted()) {
+                    <div class="space-y-4">
+                        <p class="text-blue-600 font-medium">{{ trainingMessage() }}</p>
+                        @if (!trainingMessage()?.includes("successfully")) {
+                            <div class="flex justify-center">
+                                <i class="pi pi-spin pi-spinner text-4xl text-blue-500"></i>
+                            </div>
+                        }
+                    </div>
+                } @else {
+                    <p class="text-slate-600">Click below to start training your custom model.</p>
+                    <p-button label="Start Training" (onClick)="startTraining()"></p-button>
+                }
+
+                @if (errorMessage()) {
+                    <div class="p-3 bg-red-50 text-red-700 rounded border border-red-200">
+                        {{ errorMessage() }}
+                    </div>
+                }
+            </div>
+        }
+    }
+</div>

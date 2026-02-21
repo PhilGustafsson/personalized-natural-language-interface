@@ -1,0 +1,28 @@
+services:
+
+# To use gpu: docker compose --profile cpu up --build
+  tts-app:
+    build: .
+    image: tts-app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app-data:/app/data
+    profiles: ["cpu"]
+
+# To use gpu: docker compose --profile gpu up --build
+  tts-app-gpu:
+    build: .
+    image: tts-app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app-data:/app/data
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    profiles: ["gpu"]

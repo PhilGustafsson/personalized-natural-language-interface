@@ -1,0 +1,97 @@
+
+version: "3.9"
+
+services:
+  stt-app:
+    build:
+      context: ./stt
+    image: stt-app:latest
+    container_name: stt-app
+    shm_size: "8gb"
+    # --- GPU option A (recommended for Docker Compose) ---
+    # Requires recent Docker + NVIDIA Container Toolkit
+    # Comment this out if you use Swarm + Option B below.
+    deploy: {}  # harmless placeholder; deploy is ignored by docker compose
+    gpus: all
+    # --- end GPU option A ---
+    # volumes for models + data
+    volumes:
+      - ./app/backend/data:/app/data       # persist user data + SQLite DB
+      - ./app/backend/models:/app/models   # cache base models
+    ports:
+      - "5080:5080"
+    networks:
+      - pni_net
+
+  backend:
+    build: ./app/backend
+    image: pni-backend:latest
+    container_name: pni-backend
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./app/backend/data:/app/data
+      - ./app/backend/models:/app/models
+    environment:
+      - FLASK_ENV=development
+      - DATA_DIR=/app/data
+      - MODEL_DIR=/app/models
+      - TZ=Europe/Stockholm
+    networks:
+      - pni_net
+    depends_on:
+      - stt-app
+
+  frontend:
+    build: ./app/frontend
+    image: pni-frontend:latest
+    container_name: pni-frontend
+    ports:
+      - "4200:80"
+    networks:
+      - pni_net
+    depends_on:
+      - backend
+
+  tts-app:
+    build:
+      context: ./tts
+    image: tts-app:latest
+    container_name: tts-app
+    shm_size: "8gb"
+    deploy: {}
+    gpus: all
+    volumes:
+      - ./app/backend/data:/app/data       # persist user data + SQLite DB
+      - ./app/backend/models:/app/models   # cache base models
+      - ./tts/models:/tts-app/models       # TTS-specific model cache
+    ports:
+      - "8002:8000"
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - PYTHONPATH=/tts-app:/tts-app/src
+    networks:
+      - pni_net
+
+  llm-app:
+    build:
+      context: ./llm
+    image: llm-app:latest
+    container_name: llm-app
+    shm_size: "8gb"
+    deploy: {}
+    gpus: all
+    volumes:
+      - ./app/backend/models:/app/models   # shared model cache
+      - ./llm/models:/llm-app/models       # LLM-specific model cache
+    ports:
+      - "8001:8001"
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - HF_HOME=/llm-app/models
+    networks:
+      - pni_net
+
+networks:
+  pni_net:
+    driver: bridge

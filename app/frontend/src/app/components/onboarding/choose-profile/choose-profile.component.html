@@ -1,0 +1,30 @@
+<div class="flex flex-col gap-6 max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-sm">
+  <h2 class="text-3xl font-bold text-slate-800">Choose Profile</h2>
+  <p class="text-slate-600">Select an existing profile to load.</p>
+
+  <div *ngIf="loading" class="text-blue-600 font-medium">Loading profiles...</div>
+
+  <div *ngIf="!loading && profiles.length === 0" class="p-4 bg-amber-50 text-amber-800 rounded border border-amber-100">
+    No profiles found. Create a new profile to get started.
+  </div>
+
+  <div *ngIf="!loading && profiles.length > 0" class="space-y-2">
+    <h3 class="text-lg font-semibold text-slate-700">Available Profiles</h3>
+    <p-listbox 
+      [options]="profiles" 
+      [(ngModel)]="selectedProfile" 
+      [style]="{'width':'100%'}" 
+      [listStyle]="{'max-height': '250px'}"
+      placeholder="Select a profile">
+    </p-listbox>
+  </div>
+
+  <div *ngIf="message" class="p-3 bg-red-50 text-red-700 rounded border border-red-200">
+    {{message}}
+  </div>
+
+  <div class="flex justify-end gap-4 mt-4">
+    <p-button label="Cancel" (onClick)="cancel()" severity="secondary"></p-button>
+    <p-button label="Confirm" (onClick)="confirm()" [disabled]="!selectedProfile || loading"></p-button>
+  </div>
+</div>

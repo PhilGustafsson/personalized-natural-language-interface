@@ -1,0 +1,264 @@
+{"sentence": "1", "text": "Segment 1: Introduktion till Machine Learning och Supervised Learning"}
+{"sentence": "2", "text": "Välkommen till denna genomgång av modern machine learning och dess applikationer inom computer science."}
+{"sentence": "3", "text": "När vi pratar om AI idag, syftar vi oftast på specifika subsets av teknologin, snarare än generell intelligens."}
+{"sentence": "4", "text": "Grundstenen i allt vi gör handlar om data."}
+{"sentence": "5", "text": "Utan högkvalitativ data spelar det ingen roll hur avancerad din algorithm är; principen \"garbage in, garbage out\" gäller alltid."}
+{"sentence": "6", "text": "Låt oss börja med grunderna i supervised learning."}
+{"sentence": "7", "text": "Detta är fortfarande den vanligaste formen av maskininlärning inom industrin."}
+{"sentence": "8", "text": "I en supervised setting har vi ett dataset som består av features och labels."}
+{"sentence": "9", "text": "Vårt mål är att träna en modell som kan mappa input, alltså våra features, till en korrekt output, vår label."}
+{"sentence": "10", "text": "Tänk dig att vi ska bygga en modell för att förutsäga huspriser."}
+{"sentence": "11", "text": "Våra features kan vara antal rum, kvadratmeter och område, medan priset är vår target variable."}
+{"sentence": "12", "text": "Eftersom detta är ett kontinuerligt värde, kallar vi problemet för regression."}
+{"sentence": "13", "text": "Om vi istället ville klassificera om ett email är spam eller inte, skulle vi jobba med classification, där outputen är diskret – oftast binär, noll eller ett."}
+{"sentence": "14", "text": "När vi tränar modellen delar vi först upp datat i ett training set, ett validation set och ett test set."}
+{"sentence": "15", "text": "Det är kritiskt att inte läcka information från test set in i träningsprocessen, något vi kallar för data leakage."}
+{"sentence": "16", "text": "Detta skulle ge oss falska förhoppningar om modellens prestanda."}
+{"sentence": "17", "text": "Under själva träningen försöker modellen minimera en loss function."}
+{"sentence": "18", "text": "För regressionsproblem använder vi ofta Mean Squared Error, eller MSE, medan vi för klassificering tittar på Cross-Entropy Loss."}
+{"sentence": "19", "text": "Optimeringen sker vanligtvis genom Gradient Descent."}
+{"sentence": "20", "text": "Föreställ dig att modellen står på toppen av ett berg och vill ner till dalen där felet, alltså loss, är som lägst."}
+{"sentence": "21", "text": "Genom att beräkna derivatan, eller gradienten, av vår loss function med avseende på modellens weights, vet vi åt vilket håll vi ska ta ett steg."}
+{"sentence": "22", "text": "Storleken på detta steg bestäms av vår learning rate."}
+{"sentence": "23", "text": "En för hög learning rate kan göra att vi hoppar över minpunkten och divergerar, medan en för låg learning rate gör att konvergensen tar oändligt lång tid."}
+{"sentence": "24", "text": "En av de största utmaningarna vi stöter på är overfitting."}
+{"sentence": "25", "text": "Det inträffar när modellen memorerar bruset i vårt training data istället för att lära sig den underliggande generaliseringen."}
+{"sentence": "26", "text": "Du ser detta tydligt om din training loss fortsätter sjunka medan din validation loss börjar öka."}
+{"sentence": "27", "text": "För att motverka detta använder vi tekniker som regularization."}
+{"sentence": "28", "text": "Vanliga metoder är L1- och L2-regularization, som straffar stora vikter i modellen."}
+{"sentence": "29", "text": "Vi kan också använda Dropout, där vi slumpmässigt stänger av neuroner under träningen för att tvinga nätverket att bli mer robust."}
+{"sentence": "30", "text": "Segment 2: Deep Learning och Neural Networks"}
+{"sentence": "31", "text": "Nu växlar vi upp och tittar på Deep Learning."}
+{"sentence": "32", "text": "Skillnaden mellan klassisk maskininlärning och deep learning ligger i användandet av djupa Artificial Neural Networks."}
+{"sentence": "33", "text": "Ett grundläggande nätverk, ofta kallat Multi-Layer Perceptron eller MLP, består av en input layer, flera hidden layers och en output layer."}
+{"sentence": "34", "text": "Varje lager består av noder, eller neuroner, som är sammankopplade med weights och biases."}
+{"sentence": "35", "text": "Det som gör dessa nätverk så kraftfulla är activation functions."}
+{"sentence": "36", "text": "Utan dem skulle nätverket bara vara en serie linjära transformationer, oavsett hur djupt det är."}
+{"sentence": "37", "text": "Genom att applicera en icke-linjär funktion som ReLU (Rectified Linear Unit), Sigmoid eller Tanh efter varje lager, kan nätverket lära sig extremt komplexa mönster och decision boundaries."}
+{"sentence": "38", "text": "Idag är ReLU standardvalet för dolda lager eftersom det minskar risken för vanishing gradient problem, där gradienterna blir så små att de tidiga lagren i nätverket slutar lära sig."}
+{"sentence": "39", "text": "Träningsprocessen för djupa nätverk bygger på Backpropagation."}
+{"sentence": "40", "text": "Det är en algoritm som effektivt beräknar gradienten för varje vikt i nätverket genom att applicera kedjeregeln baklänges från output till input."}
+{"sentence": "41", "text": "Detta är beräkningstungt, vilket är anledningen till att vi nästan alltid tränar Deep Learning-modeller på GPU:er snarare än CPU:er."}
+{"sentence": "42", "text": "Ramverk som PyTorch och TensorFlow är optimerade för att utnyttja CUDA cores på NVIDIAs grafikkort för att parallelisera dessa matrisoperationer."}
+{"sentence": "43", "text": "När vi bygger arkitekturer för bildanalys, eller Computer Vision, använder vi sällan vanliga täta lager direkt."}
+{"sentence": "44", "text": "Istället använder vi Convolutional Neural Networks, eller CNNs."}
+{"sentence": "45", "text": "En convolution är en matematisk operation där ett filter, eller en kernel, glider över bilden för att extrahera features som kanter, texturer och former."}
+{"sentence": "46", "text": "Genom att stacka flera convolutional layers med pooling layers, som exempelvis Max Pooling, reducerar vi dimensionaliteten samtidigt som vi behåller den spatiala informationen."}
+{"sentence": "47", "text": "Längst bak i nätverket plattar vi ut datat, gör en flatten operation, och kopplar på fully connected layers för att göra den slutgiltiga klassificeringen."}
+{"sentence": "48", "text": "Inom bildbehandling pratar vi ofta om Data Augmentation."}
+{"sentence": "49", "text": "Eftersom CNNs är väldigt datahungriga kan vi artificiellt öka vårt dataset genom att rotera, beskära, flippa eller ändra ljusstyrkan på våra bilder."}
+{"sentence": "50", "text": "Detta hjälper modellen att generalisera bättre och bli invariant mot exempelvis orientering."}
+{"sentence": "51", "text": "Segment 3: Natural Language Processing (NLP) och Transformers"}
+{"sentence": "52", "text": "Området som har exploderat mest de senaste åren är Natural Language Processing, NLP."}
+{"sentence": "53", "text": "Tidigare förlitade vi oss på rekursiva nätverk som RNNs och LSTMs (Long Short-Term Memory) för att hantera sekventiell data."}
+{"sentence": "54", "text": "Problemet med dessa var att de hade svårt att komma ihåg kontext över långa sekvenser och de var svåra att parallelisera eftersom varje steg berodde på det föregående."}
+{"sentence": "55", "text": "Allt förändrades 2017 med introduktionen av Transformer-arkitekturen och pappret \"Attention Is All You Need\"."}
+{"sentence": "56", "text": "Kärnan i en Transformer är Self-Attention mechanism."}
+{"sentence": "57", "text": "Den tillåter modellen att väga vikten av olika ord i en mening mot varandra, oavsett avståndet mellan dem."}
+{"sentence": "58", "text": "Detta gör att modellen förstår att ordet \"den\" i en mening kan syfta på ett substantiv som nämndes mycket tidigare."}
+{"sentence": "59", "text": "Vi pratar mycket om Large Language Models, LLMs, som GPT-serien, Claude eller Llama."}
+{"sentence": "60", "text": "Dessa modeller är tränade på enorma mängder textdata i en process som kallas Self-Supervised Learning."}
+{"sentence": "61", "text": "Modellen får se en bit text och dess uppgift är helt enkelt att förutsäga nästa token."}
+{"sentence": "62", "text": "En token är inte nödvändigtvis ett helt ord, utan kan vara en del av ett ord, beroende på vilken tokenizer man använder, till exempel Byte-Pair Encoding (BPE)."}
+{"sentence": "63", "text": "Efter den initiala pre-training-fasen, som kräver massiva kluster av GPU:er, genomgår modellen ofta fine-tuning."}
+{"sentence": "64", "text": "En populär metod är Instruction Tuning, där modellen tränas på dataset med frågor och svar för att bli bättre på att följa instruktioner."}
+{"sentence": "65", "text": "För att ytterligare förfina beteendet använder man RLHF, Reinforcement Learning from Human Feedback."}
+{"sentence": "66", "text": "Här tränas en separat reward model baserat på mänskliga preferenser, som sedan används för att optimera huvudmodellen via Proximal Policy Optimization (PPO)."}
+{"sentence": "67", "text": "När vi deployar dessa modeller i produktion måste vi tänka på latency och throughput."}
+{"sentence": "68", "text": "Eftersom LLMs är autoregressiva – de genererar en token i taget – kan inference vara långsam."}
+{"sentence": "69", "text": "Vi använder tekniker som Quantization för att minska modellens storlek från exempelvis 32-bit floating point (FP32) till 4-bit integers (INT4)."}
+{"sentence": "70", "text": "Detta sparar VRAM och snabbar upp beräkningarna, ofta med minimal förlust i precision."}
+{"sentence": "71", "text": "Segment 4: Data Engineering och MLOps"}
+{"sentence": "72", "text": "Ingen modell är bättre än sin infrastruktur."}
+{"sentence": "73", "text": "Det är här MLOps kommer in i bilden."}
+{"sentence": "74", "text": "MLOps är skärningspunkten mellan Machine Learning, DevOps och Data Engineering."}
+{"sentence": "75", "text": "Det handlar om att ta en modell från en Jupyter Notebook till ett stabilt produktionssystem."}
+{"sentence": "76", "text": "Allt börjar med Data Pipeline."}
+{"sentence": "77", "text": "Vi behöver robusta processer för ETL – Extract, Transform, Load."}
+{"sentence": "78", "text": "Ofta hämtar vi rådata från en Data Lake eller ett Data Warehouse som Snowflake eller BigQuery."}
+{"sentence": "79", "text": "Vi använder verktyg som Apache Airflow eller Dagster för att orkestrera våra workflows."}
+{"sentence": "80", "text": "När vi utvecklar modellen är versionshantering av både kod och data avgörande."}
+{"sentence": "81", "text": "För kod använder vi Git, men för data och modell-artefakter behöver vi verktyg som DVC (Data Version Control) eller MLflow."}
+{"sentence": "82", "text": "I ett Model Registry sparar vi våra tränade modeller tillsammans med metadata om vilka hyperparameters som användes och vilka metrics vi uppnådde."}
+{"sentence": "83", "text": "För deployment paketerar vi oftast modellen i en Docker container."}
+{"sentence": "84", "text": "Detta garanterar att vi har samma miljö i produktion som vi hade lokalt."}
+{"sentence": "85", "text": "Containern kan sedan köras i ett Kubernetes-kluster för att hantera scaling."}
+{"sentence": "86", "text": "Om trafiken ökar kan Kubernetes automatiskt spinna upp fler pods med vår modelltjänst."}
+{"sentence": "87", "text": "Vi måste också övervaka modellen när den väl är live."}
+{"sentence": "88", "text": "Det räcker inte att kolla på system-metrics som CPU och minne; vi måste övervaka Data Drift och Concept Drift."}
+{"sentence": "89", "text": "Data Drift innebär att distributionen av inkommande data förändras över tid jämfört med träningsdatat."}
+{"sentence": "90", "text": "Concept Drift betyder att relationen mellan input och output har förändrats – kanske har användarnas beteende ändrats så att vår gamla modell inte längre är relevant."}
+{"sentence": "91", "text": "Om vi upptäcker drift måste vi trigga en ny retraining pipeline."}
+{"sentence": "92", "text": "Segment 5: Unsupervised Learning och Dimensionality Reduction"}
+{"sentence": "93", "text": "Vi har pratat om supervised learning, men vad händer när vi inte har några labels?"}
+{"sentence": "94", "text": "I verkligheten är majoriteten av all data ostrukturerad och omärkt."}
+{"sentence": "95", "text": "Här kommer Unsupervised Learning in i bilden."}
+{"sentence": "96", "text": "Målet här är att hitta dolda strukturer eller mönster i datat utan någon explicit ground truth."}
+{"sentence": "97", "text": "Den mest klassiska metoden är Clustering."}
+{"sentence": "98", "text": "Låt oss ta K-Means Clustering som exempel."}
+{"sentence": "99", "text": "Algoritmen försöker dela upp datat i K antal grupper genom att iterativt uppdatera positionen för varje grupps centroid."}
+{"sentence": "100", "text": "Det fungerar bra för enkla problem, men har svårt med kluster som inte är sfäriska."}
+{"sentence": "101", "text": "För mer komplexa former använder vi densitetsbaserade algoritmer som DBSCAN, som är smart nog att hantera outliers och brus som inte tillhör något kluster alls."}
+{"sentence": "102", "text": "Ett annat kritiskt område inom unsupervised learning är Dimensionality Reduction."}
+{"sentence": "103", "text": "I moderna dataset har vi ofta hundratals eller tusentals features."}
+{"sentence": "104", "text": "Detta leder till \"The Curse of Dimensionality\", vilket gör att avståndsberäkningar blir ineffektiva och risken för overfitting ökar."}
+{"sentence": "105", "text": "För att lösa detta använder vi tekniker som Principal Component Analysis, eller PCA."}
+{"sentence": "106", "text": "PCA projicerar datat till ett undre dimensionellt rum genom att hitta de principal components – riktningar i datat med högst variance."}
+{"sentence": "107", "text": "Matematiskt handlar det om att beräkna eigenvectors och eigenvalues från datats covariance matrix."}
+{"sentence": "108", "text": "För visualisering av högdimensionell data är PCA ofta inte tillräckligt kraftfullt eftersom det är en linjär metod."}
+{"sentence": "109", "text": "Då vänder vi oss till icke-linjära tekniker som t-SNE (t-Distributed Stochastic Neighbor Embedding) eller UMAP."}
+{"sentence": "110", "text": "Dessa algoritmer försöker bevara den lokala strukturen i datat, vilket gör att liknande datapunkter hamnar nära varandra även i 2D eller 3D."}
+{"sentence": "111", "text": "Det är otroligt användbart för att visuellt inspektera embeddings från ett neuronnätverk för att se om klasserna separeras snyggt i den latenta rymden, latent space."}
+{"sentence": "112", "text": "Vi bör också nämna Anomaly Detection."}
+{"sentence": "113", "text": "Inom cybersäkerhet eller finansiella transaktioner vill vi hitta avvikelser."}
+{"sentence": "114", "text": "En metod är Isolation Forest, som bygger på principen att anomalier är lättare att isolera med slumpmässiga snitt i datat än normala datapunkter."}
+{"sentence": "115", "text": "En annan modern approach är att använda Autoencoders."}
+{"sentence": "116", "text": "En Autoencoder är ett neuralt nätverk som tränas att rekonstruera sin egen input."}
+{"sentence": "117", "text": "Genom att tvinga datat genom en \"flaskhals\" i nätverket lär sig modellen en komprimerad representation."}
+{"sentence": "118", "text": "Om reconstruction error är högt för en viss input, vet vi att det sannolikt rör sig om en anomali som modellen aldrig sett förut."}
+{"sentence": "119", "text": "Segment 6: Reinforcement Learning (RL)"}
+{"sentence": "120", "text": "Nu byter vi spår till ett av de mest fascinerande områdena inom AI: Reinforcement Learning."}
+{"sentence": "121", "text": "Till skillnad från supervised learning där vi har ett facit, lär sig en agent i RL genom trial-and-error."}
+{"sentence": "122", "text": "Agenten interagerar med en environment."}
+{"sentence": "123", "text": "Vid varje tidssteg observerar agenten ett state, utför en action, och får sedan en reward eller en penalty."}
+{"sentence": "124", "text": "Målet för agenten är att maximera den totala, diskonterade belöningen över tid, vilket kallas cumulative reward."}
+{"sentence": "125", "text": "Problemet formuleras oftast som en Markov Decision Process (MDP)."}
+{"sentence": "126", "text": "Det centrala dilemmat i RL är Exploration vs Exploitation."}
+{"sentence": "127", "text": "Ska agenten välja den handling som den tror är bäst just nu (exploitation), eller ska den prova något nytt för att se om det leder till en ännu bättre belöning (exploration)?"}
+{"sentence": "128", "text": "En enkel strategi för att balansera detta är Epsilon-Greedy, där agenten med sannolikheten epsilon väljer en slumpmässig handling."}
+{"sentence": "129", "text": "En av de mest kända algoritmerna är Q-learning."}
+{"sentence": "130", "text": "Här försöker agenten lära sig en Q-function som uppskattar värdet av att ta en viss handling i ett visst tillstånd."}
+{"sentence": "131", "text": "I komplexa miljöer, som att spela Atari-spel eller kontrollera robotar, är tillståndsrymden för stor för en enkel tabell."}
+{"sentence": "132", "text": "Då använder vi Deep Reinforcement Learning, där vi approximerar Q-funktionen med ett djupt neuralt nätverk, en så kallad Deep Q-Network (DQN)."}
+{"sentence": "133", "text": "För problem med kontinuerliga handlingar, som att styra en självkörande bil, fungerar Policy Gradient-metoder bättre."}
+{"sentence": "134", "text": "Istället för att lära sig värdet av varje handling, lär sig nätverket direkt en policy – en sannolikhetsfördelning över handlingar."}
+{"sentence": "135", "text": "Moderna algoritmer som PPO (Proximal Policy Optimization) och Soft Actor-Critic (SAC) är state-of-the-art idag."}
+{"sentence": "136", "text": "Det var dessa tekniker, kombinerat med Monte Carlo Tree Search, som lät AlphaGo besegra världsmästaren i Go, en milstolpe i AI-historien."}
+{"sentence": "137", "text": "Segment 7: Computer Science Fundamentals och Algoritmer"}
+{"sentence": "138", "text": "För att bli en duktig Machine Learning Engineer måste du ha en solid grund i klassisk Computer Science."}
+{"sentence": "139", "text": "Det spelar ingen roll hur bra din modell är om din kod är ineffektiv."}
+{"sentence": "140", "text": "Här pratar vi om Computational Complexity Theory och framförallt Big O notation."}
+{"sentence": "141", "text": "Big O beskriver hur en algoritms exekveringstid eller minnesanvändning växer när storleken på input, N, ökar."}
+{"sentence": "142", "text": "En algoritm med linjär tidskomplexitet, O(N), är oftast acceptabel."}
+{"sentence": "143", "text": "Men om du nästlar loopar inuti varandra får du snabbt kvadratisk tid, O(N2), vilket kan bli katastrofalt med stora dataset."}
+{"sentence": "144", "text": "I sökproblem strävar vi alltid efter logaritmisk tid, O(logN), vilket vi får genom algoritmer som Binary Search."}
+{"sentence": "145", "text": "Valet av Data Structures är avgörande."}
+{"sentence": "146", "text": "En Array ger snabb åtkomst om du vet indexet, men att sätta in element i mitten är långsamt."}
+{"sentence": "147", "text": "En Linked List är tvärtom."}
+{"sentence": "148", "text": "För snabba uppslagningar använder vi Hash Tables eller Hash Maps."}
+{"sentence": "149", "text": "De ger oss i genomsnitt O(1), konstant tid, för att hitta ett värde baserat på en nyckel."}
+{"sentence": "150", "text": "Men man måste vara medveten om hash collisions, som måste hanteras korrekt för att inte degradera prestandan."}
+{"sentence": "151", "text": "Vi har också trädstrukturer som Binary Search Trees (BST) och grafer."}
+{"sentence": "152", "text": "Inom AI använder vi ofta grafer för att representera kunskap, så kallade Knowledge Graphs."}
+{"sentence": "153", "text": "Algoritmer för att traversera grafer, som Breadth-First Search (BFS) och Depth-First Search (DFS), är grundläggande verktyg i verktygslådan."}
+{"sentence": "154", "text": "Även Dynamic Programming är ett viktigt koncept, där vi bryter ner ett problem i mindre delproblem och sparar resultaten, så kallad memoization, för att undvika onödiga beräkningar."}
+{"sentence": "155", "text": "Segment 8: Distribuerade System och Cloud Computing"}
+{"sentence": "156", "text": "I en modern enterprise environment körs sällan kod på en enda server."}
+{"sentence": "157", "text": "Vi bygger Distributed Systems."}
+{"sentence": "158", "text": "Här måste vi förstå begrepp som Scalability."}
+{"sentence": "159", "text": "Vi skiljer på Vertical Scaling (att köpa en större server med mer RAM och CPU) och Horizontal Scaling (att lägga till fler servrar i klustret)."}
+{"sentence": "160", "text": "Molnet är byggt för horisontell skalning."}
+{"sentence": "161", "text": "När vi designar dessa system stöter vi på CAP theorem."}
+{"sentence": "162", "text": "Det säger att ett distribuerat datalager bara kan garantera två av tre egenskaper samtidigt: Consistency (alla noder ser samma data samtidigt), Availability (systemet svarar alltid), och Partition Tolerance (systemet fungerar även om nätverket går ner)."}
+{"sentence": "163", "text": "De flesta moderna NoSQL-databaser som Cassandra eller DynamoDB offrar ofta strikt konsistens för att maximera tillgänglighet, vilket kallas Eventual Consistency."}
+{"sentence": "164", "text": "Vi pratar ofta om Microservices Architecture."}
+{"sentence": "165", "text": "Istället för en stor Monolithic Application, delar vi upp systemet i små, självständiga tjänster som kommunicerar via API:er."}
+{"sentence": "166", "text": "Oftast använder vi REST över HTTP eller det snabbare och mer typade gRPC som använder Protobufs."}
+{"sentence": "167", "text": "För att hantera trafiken mellan dessa tjänster behövs en Load Balancer som NGINX eller HAProxy, som distribuerar requests jämnt över våra instanser."}
+{"sentence": "168", "text": "För att minimera latency, alltså fördröjningen, använder vi Caching."}
+{"sentence": "169", "text": "Att hämta data från disk eller en databas är långsamt."}
+{"sentence": "170", "text": "Genom att lagra ofta efterfrågad data i minnet med hjälp av Redis eller Memcached kan vi svara på millisekunder."}
+{"sentence": "171", "text": "Detta är kritiskt för realtidsapplikationer."}
+{"sentence": "172", "text": "Slutligen, i en molnmiljö som AWS, Azure eller Google Cloud, pratar vi om olika servicemodeller."}
+{"sentence": "173", "text": "IaaS (Infrastructure as a Service) ger oss virtuella maskiner."}
+{"sentence": "174", "text": "PaaS (Platform as a Service) låter oss deploya kod utan att tänka på servrar, och SaaS (Software as a Service) är färdiga mjukvarulösningar."}
+{"sentence": "175", "text": "Inom ML ser vi också framväxten av Serverless computing som AWS Lambda, där vi bara betalar för exakt de millisekunder koden körs, vilket är perfekt för event-driven arkitekturer."}
+{"sentence": "176", "text": "Segment 9: Software Development Lifecycle (SDLC) och DevOps"}
+{"sentence": "177", "text": "Vi har pratat mycket om algoritmer och modeller, men hur ser vardagen ut för en Software Engineer?"}
+{"sentence": "178", "text": "Det handlar sällan om att sitta ensam och hacka kod."}
+{"sentence": "179", "text": "Vi arbetar i team enligt Agile-metodiker."}
+{"sentence": "180", "text": "Den vanligaste ramen är Scrum."}
+{"sentence": "181", "text": "Arbetet delas upp i korta iterationer som kallas Sprints, oftast två veckor långa."}
+{"sentence": "182", "text": "Varje morgon har teamet en Daily Stand-up för att synka progress och flagga för eventuella blockers."}
+{"sentence": "183", "text": "Allt arbete utgår från en Backlog, som består av User Stories."}
+{"sentence": "184", "text": "En User Story beskriver en funktion ur användarens perspektiv."}
+{"sentence": "185", "text": "Innan en sprint börjar har vi Sprint Planning, där vi estimerar komplexiteten på uppgifterna, ofta med hjälp av Story Points."}
+{"sentence": "186", "text": "När vi skriver kod följer vi ofta Test-Driven Development, eller TDD."}
+{"sentence": "187", "text": "Det innebär att du skriver ditt Unit Test innan du skriver själva implementationen."}
+{"sentence": "188", "text": "Cykeln kallas \"Red-Green-Refactor\"."}
+{"sentence": "189", "text": "Först misslyckas testet (Red), sedan skriver du precis tillräckligt med kod för att testet ska passera (Green), och slutligen snyggar du till koden (Refactor) utan att ändra funktionaliteten."}
+{"sentence": "190", "text": "När koden är klar skapar utvecklaren en Pull Request, eller PR, i versionshanteringssystemet, vanligtvis GitHub eller GitLab."}
+{"sentence": "191", "text": "Innan koden kan mergas till main branch, måste den genomgå en Code Review."}
+{"sentence": "192", "text": "Det är här kollegor granskar koden för att hitta buggar, säkerhetshål eller dålig code style."}
+{"sentence": "193", "text": "Vi använder statiska analysverktyg, Linters, för att automatisera en del av denna koll."}
+{"sentence": "194", "text": "Hjärtat i modern mjukvaruleverans är CI/CD – Continuous Integration och Continuous Deployment."}
+{"sentence": "195", "text": "Så fort en commit pushas till repot, triggar en pipeline igång i verktyg som Jenkins, CircleCI eller GitHub Actions."}
+{"sentence": "196", "text": "Den kör alla Unit Tests och Integration Tests automatiskt."}
+{"sentence": "197", "text": "Om allt ser grönt ut, kan koden automatiskt deployas till en Staging Environment för manuell testning, eller direkt till Production om man litar på sin test coverage."}
+{"sentence": "198", "text": "Detta tankesätt är grunden i DevOps."}
+{"sentence": "199", "text": "Vi vill riva väggarna mellan Development (de som bygger) och Operations (de som driftar)."}
+{"sentence": "200", "text": "Ett viktigt koncept här är Infrastructure as Code (IaC)."}
+{"sentence": "201", "text": "Istället för att manuellt klicka runt i AWS-konsolen, definierar vi vår infrastruktur i kod med verktyg som Terraform eller CloudFormation."}
+{"sentence": "202", "text": "Detta gör infrastrukturen reproducerbar och versionshanterad, precis som applikationskoden."}
+{"sentence": "203", "text": "Segment 10: Cybersecurity Fundamentals"}
+{"sentence": "204", "text": "I en uppkopplad värld är säkerhet, eller InfoSec, inte något vi kan lägga på i efterhand; det måste vara \"Security by Design\"."}
+{"sentence": "205", "text": "Grundpelaren inom informationssäkerhet är CIA Triad: Confidentiality, Integrity och Availability."}
+{"sentence": "206", "text": "När vi skyddar data i vila eller under överföring använder vi Encryption."}
+{"sentence": "207", "text": "Vi skiljer på Symmetric Encryption, som AES, där samma nyckel används för att låsa och låsa upp, och Asymmetric Encryption, som RSA."}
+{"sentence": "208", "text": "Asymmetrisk kryptering använder ett nyckelpar: en Public Key som alla kan se, och en Private Key som måste hållas hemlig."}
+{"sentence": "209", "text": "Detta är grunden för SSL/TLS, protokollet som ger oss det lilla hänglåset i webbläsaren (HTTPS)."}
+{"sentence": "210", "text": "En vanlig missuppfattning är skillnaden mellan Authentication (AuthN) och Authorization (AuthZ)."}
+{"sentence": "211", "text": "Authentication svarar på frågan \"Vem är du?\"."}
+{"sentence": "212", "text": "Det löser vi med lösenord, biometri eller Multi-Factor Authentication (MFA)."}
+{"sentence": "213", "text": "Authorization svarar på \"Vad får du göra?\"."}
+{"sentence": "214", "text": "Här använder vi ofta standarder som OAuth 2.0 och OpenID Connect."}
+{"sentence": "215", "text": "I moderna webbapplikationer skickar vi ofta JSON Web Tokens (JWT) i varje HTTP request för att bevisa att användaren är inloggad och har rätt behörigheter, så kallade scopes."}
+{"sentence": "216", "text": "Utvecklare måste ständigt vara vaksamma mot sårbarheter."}
+{"sentence": "217", "text": "OWASP Top 10 listar de mest kritiska säkerhetsriskerna för webbapplikationer."}
+{"sentence": "218", "text": "En klassiker är SQL Injection, där en angripare lyckas smyga in skadlig SQL-kod i en databasfråga för att stjäla eller radera data."}
+{"sentence": "219", "text": "En annan är Cross-Site Scripting (XSS), där angriparen injicerar JavaScript som körs i offrens webbläsare."}
+{"sentence": "220", "text": "För att skydda lösenord i databaser får vi aldrig spara dem i klartext."}
+{"sentence": "221", "text": "Vi måste använda Hashing-algoritmer som bcrypt eller Argon2, och alltid lägga till ett unikt slumpmässigt värde, ett Salt, för att förhindra Rainbow Table attacks."}
+{"sentence": "222", "text": "På nätverksnivå måste vi skydda oss mot DDoS attacks (Distributed Denial of Service), där angriparen överbelastar våra servrar med trafik från ett Botnet."}
+{"sentence": "223", "text": "Moderna säkerhetsarkitekturer rör sig mot en Zero Trust-modell."}
+{"sentence": "224", "text": "Grundprincipen är \"never trust, always verify\"."}
+{"sentence": "225", "text": "Bara för att du är innanför företagets firewall betyder det inte att du är pålitlig."}
+{"sentence": "226", "text": "Varje förfrågan måste verifieras."}
+{"sentence": "227", "text": "Segment 11: Future Trends, Ethics och AI Safety"}
+{"sentence": "228", "text": "När vi blickar framåt ser vi teknologier som kommer att fundamentalt förändra landskapet."}
+{"sentence": "229", "text": "Generative AI har redan börjat."}
+{"sentence": "230", "text": "Vi går från modeller som klassificerar data till modeller som skapar ny data – text, kod, bilder och video."}
+{"sentence": "231", "text": "Vi ser en rörelse mot Multimodal Models, som kan förstå och generera flera datatyper samtidigt."}
+{"sentence": "232", "text": "Men med stor kraft kommer stort ansvar."}
+{"sentence": "233", "text": "AI Ethics och Alignment är hetare än någonsin."}
+{"sentence": "234", "text": "Hur säkerställer vi att våra modeller inte är partiska?"}
+{"sentence": "235", "text": "Algorithmic Bias uppstår när träningsdatat speglar samhällets fördomar."}
+{"sentence": "236", "text": "Om en modell tränas på historiska anställningsdata, kan den lära sig att diskriminera mot kvinnor eller minoriteter."}
+{"sentence": "237", "text": "Vi måste jobba aktivt med Fairness metrics och kurering av dataset."}
+{"sentence": "238", "text": "Ett annat problem är \"The Black Box problem\"."}
+{"sentence": "239", "text": "Djupa neuronnätverk är svåra att tolka."}
+{"sentence": "240", "text": "Inom medicin eller juridik räcker det inte med att modellen säger \"Cancer\" eller \"Skyldig\"; vi måste veta varför."}
+{"sentence": "241", "text": "Detta drivs av fältet Explainable AI (XAI), där vi försöker skapa modeller som kan motivera sina beslut, eller använda metoder som SHAP values för att förklara vilka features som påverkade utfallet."}
+{"sentence": "242", "text": "Vi har också problemet med Hallucinations, där LLMs med stort självförtroende presenterar falska fakta."}
+{"sentence": "243", "text": "För att motverka detta använder vi tekniker som RAG (Retrieval-Augmented Generation), där modellen får tillgång till en extern kunskapsbas för att verifiera fakta innan den svarar."}
+{"sentence": "244", "text": "Lagstiftningen hinner knappt med, men initiativ som EU:s AI Act försöker reglera högrisk-AI."}
+{"sentence": "245", "text": "Vi måste också fundera på den långsiktiga risken med AGI (Artificial General Intelligence) – system som är smartare än människor på alla områden."}
+{"sentence": "246", "text": "AI Safety-forskning handlar om att säkerställa att sådana system förblir i linje med mänskliga värderingar."}
+{"sentence": "247", "text": "Parallellt med AI ser vi framsteg inom Quantum Computing."}
+{"sentence": "248", "text": "Dagens datorer bygger på bitar som är noll eller ett."}
+{"sentence": "249", "text": "Kvantdatorer använder Qubits."}
+{"sentence": "250", "text": "Tack vare fenomen som Superposition och Entanglement kan en kvantdator utföra vissa beräkningar exponentiellt snabbare än klassiska datorer."}
+{"sentence": "251", "text": "När vi når Quantum Supremacy kommer nuvarande krypteringsmetoder som RSA att knäckas på minuter."}
+{"sentence": "252", "text": "Detta driver utvecklingen av Post-Quantum Cryptography."}
+{"sentence": "253", "text": "Segment 12: Conclusion och Outro"}
+{"sentence": "254", "text": "Vi har nu tagit oss igenom en omfattande resa genom det tekniska landskapet."}
+{"sentence": "255", "text": "Från grundläggande Supervised Learning och Gradient Descent, genom djupa Neural Networks och Transformers, till infrastrukturen som håller allt igång med Kubernetes och CI/CD."}
+{"sentence": "256", "text": "Vi har rört vid säkerhetsprinciper som Zero Trust och blickat in i framtiden med Generative AI och Quantum Computing."}
+{"sentence": "257", "text": "Syftet med denna text har varit att exponera dig för den terminologi och de språkmönster som definierar modern IT och Computer Science."}
+{"sentence": "258", "text": "Att kunna växla sömlöst mellan svenska och engelska facktermer är nyckeln till att låta naturlig i en professionell kontext i Sverige."}
+{"sentence": "259", "text": "När du nu processar denna data, kom ihåg att nyansen i uttalet av akronymer som SQL (uttalas ofta \"sequel\"), GUI (\"gooey\") och SaaS (\"sass\") är lika viktig som förståelsen för syntaxen."}
+{"sentence": "260", "text": "Teknikbranschen har ett eget språk, en dialekt formad av innovation och globalt samarbete."}
+{"sentence": "261", "text": "Tack för att du lyssnade på denna genomgång av teknisk vokabulär för Text-to-Speech finetuning."}
+{"sentence": "262", "text": "Nu är det upp till dig att ta denna input och generera en output i världsklass."}
+{"sentence": "263", "text": "Lycka till med träningen."}
+{"sentence": "264", "text": "End of transmission."}

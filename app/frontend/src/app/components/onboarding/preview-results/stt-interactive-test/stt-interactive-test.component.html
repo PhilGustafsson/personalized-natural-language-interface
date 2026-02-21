@@ -1,0 +1,32 @@
+<div class="flex flex-col gap-4">
+    <p class="text-slate-600">Record yourself and STT will transcribe it.</p>
+    
+    <div class="flex flex-col gap-4">
+        <!-- Control buttons -->
+        <div class="flex items-center gap-4">
+            <app-mic-circle-meter [level]="micLevel()"></app-mic-circle-meter>
+
+            @if (!isProcessing()) {
+                @if (!isRecording()) {
+                    <p-button label="Record" icon="pi pi-microphone" (onClick)="startRecording()"></p-button>
+                }
+                @else {
+                    <p-button label="Stop" icon="pi pi-stop" (onClick)="stopRecording()" severity="danger"></p-button>
+                }
+            }
+            @else {
+                <p-button label="Processing..." icon="pi pi-spin pi-spinner" [disabled]="true"></p-button>
+            }
+        </div>
+
+        <div *ngIf="transcribedText()" class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm flex items-start gap-4 animate-fade-in">
+            <div class="flex-shrink-0 text-blue-500 mt-1">
+                <i class="pi pi-arrow-right text-xl"></i>
+            </div>
+
+            <div class="flex-grow text-slate-800 font-medium">
+                <p [appTypewriter]="transcribedText()!" [typingSpeed]="10" class="typewriter"></p>
+            </div>
+        </div>
+    </div>
+</div>

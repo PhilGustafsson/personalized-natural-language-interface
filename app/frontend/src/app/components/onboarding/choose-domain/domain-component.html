@@ -1,0 +1,40 @@
+<div class="content">
+    <div class="prompt-container">
+        <p class="prompt-counter">Domain {{domainID}}</p>
+        <p class="prompt-help">Please read the following text aloud. The recording will be saved automatically with a predefined name.</p>
+        <p class="prompt">{{domainText}}</p>
+    </div>
+
+    <div class="recording-status">
+        <div *ngIf="recording" class="recording-indicator">
+            <div class="indicator-content">
+                <div class="blue-dot"></div>
+                <span class="elapsed-time">{{elapsedTimeSignal() | secondsToMmss}}</span>
+            </div>
+        </div>
+
+        <div *ngIf="showPreview" class="recording-indicator">
+            <div class="indicator-content">
+                <span class="elapsed-time">Duration: {{elapsedTimeSignal() | secondsToMmss}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-controls">
+        <button class="nav-button ok-button" (click)="startRecording()" [disabled]="recording">Record</button>
+        <button class="nav-button button" (click)="pauseOrResume()" [disabled]="!(recording || paused)">{{ paused ? 'Resume' : 'Pause' }}</button>
+        <button class="nav-button button" (click)="finishRecording()" [disabled]="!recording">Stop</button>
+        <button class="nav-button button" (click)="discardRecording()" [disabled]="!showPreview">Discard</button>
+        <button class="nav-button ok-button" (click)="saveRecording()" [disabled]="!showPreview">Save</button>
+    </div>
+
+    <div *ngIf="showPreview" class="preview-controls">
+        <h4>Preview</h4>
+        <app-audio-player [src]="recordingPreviewUrl" [buttonBottom]="false"></app-audio-player>
+    </div>
+
+    <div class="status">{{status}}</div>
+    <div class="actions">
+        <button class="nav-button button" (click)="onBack()">Back</button>
+    </div>
+</div>

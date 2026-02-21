@@ -1,0 +1,56 @@
+{
+    "name": "sv-advanced-prompts",
+    "language": "sv",
+    "prompts": [
+        {
+            "id": 1,
+            "text": "Jag köpte 7,5 liter ekologisk mjölk och 3 paket smör, men glömde 1 burk lingonsylt, typiskt mig, eller hur.",
+            "tokens": ["Jag","köpte","7,5","liter","ekologisk","mjölk","och","3","paket","smör",",","men","glömde","1","burk","lingonsylt",",","typiskt","mig",",","eller","hur","."]
+        },
+        {
+            "id": 2,
+            "text": "På E4:an körde vi i 110 kilometer i timmen genom Östergötland, och radion spelade dä ä la gôtt väder idag på bred göteborgska.",
+            "tokens": ["På","E4:an","körde","vi","i","110","kilometer","i","timmen","genom","Östergötland",",","och","radion","spelade","dä","ä","la","gôtt","väder","idag","på","bred","göteborgska","."]
+        },
+        {
+            "id": 3,
+            "text": "Farmor bakade 24 kanelbullar och sa att de här bullarna ä gôrgoa men du får ta minst två.",
+            "tokens": ["Farmor","bakade","24","kanelbullar","och","sa","att","de","här","bullarna","ä","gôrgoa","men","du","får","ta","minst","två","."]
+        },
+        {
+            "id": 4,
+            "text": "Jag betalade 1 299 kronor för en dammsugare med filter och extra lång teleskopslang, snacka om dyrt.",
+            "tokens": ["Jag","betalade","1","299","kronor","för","en","dammsugare","med","filter","och","extra","lång","teleskopslang",",","snacka","om","dyrt","."]
+        },
+        {
+            "id": 5,
+            "text": "I Norrland kan temperaturen sjunka till minus 35 grader, och folk säger ändå det ä bara lite kyligt hörru.",
+            "tokens": ["I","Norrland","kan","temperaturen","sjunka","till","minus","35","grader",",","och","folk","säger","ändå","det","ä","bara","lite","kyligt","hörru","."]
+        },
+        {
+            "id": 6,
+            "text": "Vi såg 12 älgar längs vägen när vi åkte genom Västerbotten, och en av dem stod mitt på vägen i nästan 3 minuter.",
+            "tokens": ["Vi","såg","12","älgar","längs","vägen","när","vi","åkte","genom","Västerbotten",",","och","en","av","dem","stod","mitt","på","vägen","i","nästan","3","minuter","."]
+        },
+        {
+            "id": 7,
+            "text": "Jag drack 3 koppar kaffe, åt en smörgås med gravad lax och diskuterade kvantmekanik, inte varje dag man gör det.",
+            "tokens": ["Jag","drack","3","koppar","kaffe",",","åt","en","smörgås","med","gravad","lax","och","diskuterade","kvantmekanik",",","inte","varje","dag","man","gör","det","."]
+        },
+        {
+            "id": 8,
+            "text": "Min cykel kostade 4 500 kronor, har 21 växlar och en ram av kolfiber, det är hightech för landsvägscykling.",
+            "tokens": ["Min","cykel","kostade","4","500","kronor",",","har","21","växlar","och","en","ram","av","kolfiber",",","det","är","hightech","för","landsvägscykling","."]
+        },
+        {
+            "id": 9,
+            "text": "Vi räknade 18 båtar i hamnen, hörde någon säga dä ä fint väder och såg en skylt med texten Välkommen till Gotland.",
+            "tokens": ["Vi","räknade","18","båtar","i","hamnen",",","hörde","någon","säga","dä","ä","fint","väder","och","såg","en","skylt","med","texten","Välkommen","till","Gotland","."]
+        },
+        {
+            "id": 10,
+            "text": "Jag sprang 5 kilometer på 28 minuter och lyssnade på en podd om artificiell intelligens. Jag tänkte hur svårt kan det va.",
+            "tokens": ["Jag","sprang","5","kilometer","på","28","minuter","och","lyssnade","på","en","podd","om","artificiell","intelligens",".","Jag","tänkte","Hur","svårt","kan","det","va","."]
+        }
+    ]
+}

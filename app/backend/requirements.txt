@@ -1,0 +1,10 @@
+Flask==3.0.0
+flask-cors==4.0.0
+flask_sock
+librosa
+numpy
+scipy
+soundfile
+ffmpeg-python
+pytz
+requests

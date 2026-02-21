@@ -1,0 +1,39 @@
+<div class="flex flex-col gap-6 max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-sm">
+  <h3 class="text-2xl font-bold text-slate-800">Evaluate Audio</h3>
+
+  <div class="overflow-x-auto">
+    <table class="w-full text-left border-collapse">
+      <thead>
+        <tr>
+          <th class="p-4 border-b border-slate-200 font-semibold text-slate-700">Criteria</th>
+          <th *ngFor="let grade of grades" class="p-4 border-b border-slate-200 font-semibold text-slate-700 text-center">{{ grade }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of evaluationRows; let i = index" class="hover:bg-slate-50">
+          <td class="p-4 border-b border-slate-100 font-medium text-slate-800">{{ row.criteria }}</td>
+          <td *ngFor="let grade of grades" class="p-4 border-b border-slate-100 text-center">
+            <button 
+              class="w-8 h-8 rounded-full border-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              [class.border-slate-300]="!isGradeSelected(i, grade)"
+              [class.bg-white]="!isGradeSelected(i, grade)"
+              [class.border-blue-500]="isGradeSelected(i, grade)"
+              [class.bg-blue-500]="isGradeSelected(i, grade)"
+              (click)="selectGrade(i, grade)"
+              title="Rate {{ grade }}">
+              <span *ngIf="isGradeSelected(i, grade)" class="text-white text-xs">✓</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="flex justify-end mt-4">
+    <p-button 
+      label="Done" 
+      (onClick)="saveToCsv()" 
+      [disabled]="!isAllGraded()">
+    </p-button>
+  </div>
+</div>

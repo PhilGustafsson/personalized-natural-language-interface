@@ -1,0 +1,85 @@
+<div class="max-w-7xl mx-auto p-6 bg-white rounded shadow">
+  <h2 class="text-2xl font-semibold mb-6">Evaluate Models</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <!-- Dataset Selection -->
+      <div class="flex flex-col gap-2">
+          <label class="font-medium text-slate-700">Dataset</label>
+          <select [(ngModel)]="selectedDataset" (change)="loadMetadata()" class="p-2 border rounded">
+              <option *ngFor="let ds of datasets" [value]="ds">{{ ds }}</option>
+          </select>
+      </div>
+
+      <!-- Fine-tuned Model Selection -->
+      <div class="flex flex-col gap-2">
+          <label class="font-medium text-slate-700">Fine-tuned Model</label>
+          <select [(ngModel)]="selectedFinetunedModel" class="p-2 border rounded">
+              <option *ngFor="let m of finetunedModels" [value]="m">{{ m }}</option>
+          </select>
+      </div>
+  </div>
+
+  <div class="mb-6">
+      <p-button label="Run Comparison (Base vs Fine-tuned)" 
+                (onClick)="runComparison()" 
+                [disabled]="loading || !selectedFinetunedModel || !selectedDataset"></p-button>
+  </div>
+
+  <div *ngIf="loading" class="mb-4 text-blue-600">
+    Running evaluation... This may take a while.
+  </div>
+
+  <div *ngIf="error" class="mb-4 p-3 bg-red-50 text-red-700 rounded">
+    {{ error }}
+  </div>
+
+  <!-- Summary Metrics -->
+  <div *ngIf="evaluationResults.length > 0" class="mb-6 grid grid-cols-2 gap-4">
+      <div class="p-4 bg-slate-50 rounded border">
+          <h3 class="font-semibold mb-2">Base Model ({{ baseModel }})</h3>
+          <div class="text-sm">Average WER: <span class="font-bold">{{ averageMetrics.baseWer | percent:'1.2-2' }}</span></div>
+          <div class="text-sm">Average CER: <span class="font-bold">{{ averageMetrics.baseCer | percent:'1.2-2' }}</span></div>
+      </div>
+      <div class="p-4 bg-blue-50 rounded border border-blue-200">
+          <h3 class="font-semibold mb-2">Fine-tuned Model</h3>
+          <div class="text-sm">Average WER: <span class="font-bold">{{ averageMetrics.finetunedWer | percent:'1.2-2' }}</span></div>
+          <div class="text-sm">Average CER: <span class="font-bold">{{ averageMetrics.finetunedCer | percent:'1.2-2' }}</span></div>
+          
+          <div class="mt-2 text-xs text-green-700 font-medium" *ngIf="averageMetrics.baseWer > averageMetrics.finetunedWer">
+              Improvement: {{ (averageMetrics.baseWer - averageMetrics.finetunedWer) | percent:'1.2-2' }} reduction in WER
+          </div>
+      </div>
+  </div>
+
+  <!-- Detailed Results Table -->
+  <div *ngIf="evaluationResults.length > 0" class="overflow-x-auto">
+    <table class="w-full border-collapse border border-gray-300 text-sm">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="border p-2 text-left w-1/6">Filename</th>
+          <th class="border p-2 text-left w-1/4">Ground Truth</th>
+          <th class="border p-2 text-left w-1/4">Base Model</th>
+          <th class="border p-2 text-left w-1/4">Fine-tuned Model</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let res of evaluationResults" class="hover:bg-gray-50">
+          <td class="border p-2 font-mono text-xs">{{ res.filename }}</td>
+          <td class="border p-2">{{ res.groundTruth }}</td>
+          <td class="border p-2">
+              <div [innerHTML]="res.baseDiffHtml"></div>
+              <div class="text-xs text-slate-500 mt-1">
+                  WER: {{ res.baseWer | percent:'1.1-1' }} | CER: {{ res.baseCer | percent:'1.1-1' }}
+              </div>
+          </td>
+          <td class="border p-2 bg-blue-50/30">
+              <div [innerHTML]="res.finetunedDiffHtml"></div>
+              <div class="text-xs text-slate-500 mt-1">
+                  WER: {{ res.finetunedWer | percent:'1.1-1' }} | CER: {{ res.finetunedCer | percent:'1.1-1' }}
+              </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

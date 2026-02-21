@@ -1,0 +1,17 @@
+<div class="flex flex-col gap-6 max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-sm">
+    <div class="text-center space-y-4">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto text-green-600">
+            <i class="pi pi-check text-3xl"></i>
+        </div>
+        <h1 class="text-3xl font-bold text-slate-800">New Profile Created</h1>
+        
+        <p *ngIf="username && username.trim().length > 0" class="text-slate-600 text-lg">
+            Your profile name is <strong class="text-slate-900 font-semibold">{{username}}</strong>
+        </p>
+    </div>
+
+    <div class="flex justify-end gap-4 mt-4">
+        <p-button label="Cancel" (onClick)="cancel.emit()" severity="secondary"></p-button>
+        <p-button label="Continue" (onClick)="ok.emit()"></p-button>
+    </div>
+</div>

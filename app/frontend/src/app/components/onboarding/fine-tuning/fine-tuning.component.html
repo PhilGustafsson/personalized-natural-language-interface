@@ -1,0 +1,49 @@
+<div class="flex flex-col gap-6 max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-sm">
+    @if (isFineTuningComplete()) {
+        <div>
+            <h1 class="text-3xl font-bold text-slate-800 mb-2">Personalization complete</h1>
+            <p class="text-slate-600">Fine-tuning complete</p>
+        </div>
+    }
+    @else {
+        <div>
+            <h1 class="text-3xl font-bold text-slate-800 mb-2">Personalization in progress</h1>
+            <p class="text-slate-600">Models are being fine-tuned</p>
+        </div>
+    }
+
+    <div class="space-y-6">
+        <!-- TTS progress. -->
+        @if (isFinetuningTTS()) {
+            <div class="space-y-2">
+                <span class="font-medium text-slate-700">TTS Progress</span>
+                <p-progressBar [value]="progressTTS()"></p-progressBar>
+            </div>
+        }
+
+        <!-- STT progess. -->
+        @if (isFinetuningSTT()) {
+            <div class="space-y-2">
+                <span class="font-medium text-slate-700">STT Progress</span>
+                <p-progressBar [value]="progressSTT()"></p-progressBar>
+            </div>
+            
+            @if (statusSTT()?.result; as result) {
+                <div class="mt-4 p-4 bg-slate-50 rounded border border-slate-200">
+                    <h3 class="font-semibold text-slate-700">STT Result</h3>
+                    <p class="text-sm text-slate-600">Final WER: {{result.final_wer | number:'1.2-2'}}</p>
+                    <p class="text-sm text-slate-600">Model saved to: {{result.finetuned_dir}}</p>
+                </div>
+            }
+        }
+    </div>
+
+    <!-- <p class="text-sm text-slate-500" [style.visibility]="isFineTuningComplete() ? 'hidden' : 'visible'">
+        Estimated time remaining: {{timeRemaining() | timeAgo}}
+    </p> -->
+
+    <div class="flex justify-end gap-4 mt-4">
+        <p-button label="Cancel" (onClick)="cancelFineTuning()" severity="secondary"></p-button>
+        <p-button label="Continue" (onClick)="continue()" [disabled]="!isFineTuningComplete()"></p-button>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+{
+    "name": "sv-advanced-prompts",
+    "language": "sv",
+    "prompts": [
+        {
+            "id": 1,
+            "text": "Jag köpte 7,5 liter ekologisk mjölk och 3 paket smör, men glömde 1 burk lingonsylt, typiskt mig, eller hur.",
+            "tokens": ["Jag","köpte","7,5","liter","ekologisk","mjölk","och","3","paket","smör",",","men","glömde","1","burk","lingonsylt",",","typiskt","mig",",","eller","hur","."]
+        },
+        {
+            "id": 2,
+            "text": "På E4:an körde vi i 110 kilometer i timmen genom Östergötland, och radion spelade dä ä la gôtt väder idag på bred göteborgska.",
+            "tokens": ["På","E4:an","körde","vi","i","110","kilometer","i","timmen","genom","Östergötland",",","och","radion","spelade","dä","ä","la","gôtt","väder","idag","på","bred","göteborgska","."]
+        },
+        {
+            "id": 3,
+            "text": "Farmor bakade 24 kanelbullar och sa att de här bullarna ä gôrgoa men du får ta minst två.",
+            "tokens": ["Farmor","bakade","24","kanelbullar","och","sa","att","de","här","bullarna","ä","gôrgoa","men","du","får","ta","minst","två","."]
+        },
+        {
+            "id": 4,
+            "text": "Jag betalade 1 299 kronor för en dammsugare med filter och extra lång teleskopslang, snacka om dyrt.",
+            "tokens": ["Jag","betalade","1","299","kronor","för","en","dammsugare","med","filter","och","extra","lång","teleskopslang",",","snacka","om","dyrt","."]
+        },
+        {
+            "id": 5,
+            "text": "I Norrland kan temperaturen sjunka till minus 35 grader, och folk säger ändå det ä bara lite kyligt hörru.",
+            "tokens": ["I","Norrland","kan","temperaturen","sjunka","till","minus","35","grader",",","och","folk","säger","ändå","det","ä","bara","lite","kyligt","hörru","."]
+        }
+    ]
+}

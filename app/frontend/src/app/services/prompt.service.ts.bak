@@ -1,0 +1,150 @@
+import { computed, effect, Injectable, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { BehaviorSubject, map, Observable, tap, timer, throwError } from 'rxjs';
+import { ProfileService } from './profile.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
+export interface Prompt {
+    id: string,
+    text: string
+}
+
+export interface Prompts {
+    name: string, // the name of the collection
+    language: string,
+    prompts: Prompt[]
+}
+
+export interface RecordingData {
+    recording: Blob,
+    qualityCheckedByUser: boolean,
+    passedAutomaticQualityCheck: boolean,
+    automaticQualityScore: number
+}
+
+export interface SaveRecordingRespone {
+    message: string,
+    filepath: string
+}
+
+
+@Injectable({
+    providedIn: 'root'
+})
+export class PromptService {
+
+    private prompts = signal<Prompts | null>(null);
+    public readonly arePromptsLoaded = computed(() => this.prompts() != null);
+
+    private readonly promptIndex = signal(0);
+    private readonly currentPrompt = signal<Prompt | null>(null);
+    public readonly currentPromptText = computed(() => this.currentPrompt()?.text ?? "null");
+    public readonly promptingComplete = signal(false);
+    public readonly currentPromptNumber = computed(() => this.promptIndex() + 1);
+    public readonly totalPrompts = computed(() => this.prompts()?.prompts.length ?? 0);
+    
+    constructor(
+        private http: HttpClient, 
+        private profileService: ProfileService,
+        private router: Router,
+        private route: ActivatedRoute,
+    ) {
+        // Load prompt state from query params.
+        route.queryParams.subscribe(params => {
+            const promptIndex = params['promptIndex'] ? +params['promptIndex'] : -1;
+            if (promptIndex >= 0 && promptIndex != this.promptIndex()) {
+                this.promptIndex.set(promptIndex);
+            }
+        });
+
+        // Update query params when prompt index changes.
+        effect(() => {
+            const promptIndex = this.promptIndex();
+            this.router.navigate([], {
+                queryParams: {promptIndex},
+                queryParamsHandling: 'merge'
+            });
+        });
+
+        // todo: persist the collection name in queury params.
+    }
+
+    /**
+     * Loads the standard Swedish prompts from the backend.
+     */
+    loadSvStandardPrompts() {
+        this.http.get<Prompts>(`${environment.apiUrl}/prompts/sv-standard/`).subscribe({
+            next: prompts => {
+                this.prompts.set(prompts),
+                this.refreshPrompt();
+                console.log('Loaded prompts:', prompts.name);
+                console.log('First prompt:', prompts.prompts[0]);
+            }
+        });
+    }
+
+    /**
+     * Loads dummy prompts for testing purposes.
+     */
+    loadDummyPrompts() {
+        const dummyPrompts: Prompts = {
+            name: 'dummy',
+            language: 'en',
+            prompts: [
+                { id: '1', text: 'Hello world.' },
+                { id: '2', text: 'The quick brown fox jumps over the lazy dog.' }
+            ]
+        };
+        this.prompts.set(dummyPrompts);
+        this.refreshPrompt();
+        console.log('Loaded dummy prompts:', dummyPrompts.name);
+        console.log('First dummy prompt:', dummyPrompts.prompts[0]);
+    }
+
+    /**
+     * Refresh the current prompt based on the current prompt index.
+     */
+    refreshPrompt() {
+        const prompts = this.prompts()?.prompts!;
+        if (prompts.length <= this.promptIndex()) {
+            this.promptingComplete.set(true);
+            this.currentPrompt.set(null);
+        }
+        else {
+            this.currentPrompt.set(prompts[this.promptIndex()]);
+        }
+    }
+
+    /**
+     * Move to the next prompt. If there are no more prompts, set promptingComplete to true.
+     */
+    nextPrompt() {
+        this.promptIndex.update(i => i + 1);
+        this.refreshPrompt();
+    }
+
+    /**
+     * Save the recording associated with the current prompt.
+     * The recording must be of type 'audio/wav'.
+     */
+    
+    saveRecording(recordingData: RecordingData): Observable<SaveRecordingRespone> {
+        const profileID = this.profileService.profileID()!;
+        const prompt = this.currentPrompt()!;
+        const promptID = `${this.prompts()?.name}-${prompt.id}`;
+        const filename = `${promptID}.wav`;
+
+        const formData = new FormData();
+        formData.append('file', recordingData.recording, filename);
+        formData.append('profileID', profileID);
+        formData.append('promptID', promptID);
+        formData.append('promptText', prompt.text);
+        formData.append('qualityCheckedByUser', recordingData.qualityCheckedByUser.toString());
+        formData.append('passedAutomaticQualityCheck', recordingData.passedAutomaticQualityCheck.toString());
+        formData.append('automaticQualityScore', recordingData.automaticQualityScore.toString());
+
+        return this.http.post<SaveRecordingRespone>(`${environment.apiUrl}/prompts/save-recording`, formData);
+    }
+
+}

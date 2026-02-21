@@ -1,0 +1,170 @@
+<div class="container mx-auto p-6 max-w-4xl">
+  <p-card styleClass="shadow-lg">
+    <ng-template pTemplate="header">
+      <div class="bg-primary-500 text-white p-4 rounded-t-lg flex justify-between items-center" style="background-color: var(--primary-color, #3B82F6);">
+        <h2 class="text-2xl font-bold m-0 text-white">Speech to Text</h2>
+        <i class="pi pi-microphone text-2xl text-white"></i>
+      </div>
+    </ng-template>
+
+    <div class="flex flex-col gap-6 p-2">
+      
+      <!-- Status Message -->
+      <div *ngIf="statusMessage" class="p-4 bg-blue-100 text-blue-800 rounded flex items-center">
+        <span>{{ statusMessage }}</span>
+        <p-progressSpinner *ngIf="loading" styleClass="w-4 h-4 ml-2" strokeWidth="4"></p-progressSpinner>
+      </div>
+
+      <!-- Main Action: Transcription -->
+      <div class="flex flex-col gap-4">
+        <h3 class="text-xl font-semibold text-gray-700">Transcription</h3>
+        
+        <!-- Model Selection -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
+             <div class="flex flex-col gap-2 w-full">
+                <label class="font-medium">Select Model</label>
+                <p-select 
+                  [options]="finetunedModels" 
+                  [(ngModel)]="selectedModelDir" 
+                  optionLabel="label" 
+                  optionValue="value"
+                  placeholder="Select a model"
+                  class="w-full"
+                  [style]="{'width':'100%'}">
+                </p-select>
+             </div>
+             <div class="flex gap-2">
+                <p-button label="Select Model" (onClick)="onSelectModel()" [disabled]="loading" styleClass="p-button-outlined"></p-button>
+                <p-button label="Load WhisperX" (onClick)="onLoadWhisperXModel()" [disabled]="loading" severity="secondary" pTooltip="Required before transcription"></p-button>
+             </div>
+        </div>
+
+        <!-- Recording Area -->
+        <div class="flex flex-col items-center justify-center p-8 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors gap-4">
+             <p-button 
+                [label]="isRecording ? 'Stop Recording' : 'Start Recording'" 
+                [icon]="isRecording ? 'pi pi-stop' : 'pi pi-microphone'" 
+                (onClick)="isRecording ? stopRecording() : startRecording()" 
+                [severity]="isRecording ? 'danger' : 'primary'"
+                [disabled]="loading && !isRecording"
+                styleClass="p-button-rounded p-button-lg">
+             </p-button>
+             <span class="text-gray-500" *ngIf="!isRecording">Click to start recording</span>
+             <span class="text-red-500 animate-pulse" *ngIf="isRecording">Recording...</span>
+        </div>
+        
+        <!-- Result Area -->
+        <div *ngIf="transcriptionText" class="p-4 bg-white border border-gray-200 rounded shadow-sm">
+            <h3 class="font-bold text-gray-700 mb-2">Transcription Result:</h3>
+            <p class="text-gray-800 leading-relaxed">{{ transcriptionText }}</p>
+        </div>
+      </div>
+
+      <p-divider></p-divider>
+
+      <!-- Expert Settings Toggle -->
+      <div class="flex items-center gap-2 cursor-pointer select-none hover:text-primary-600 transition-colors" (click)="showExpertSettings = !showExpertSettings">
+        <i class="pi" [ngClass]="showExpertSettings ? 'pi-chevron-down' : 'pi-chevron-right'"></i>
+        <span class="font-semibold text-gray-600">Expert Settings (Fine-tuning & Evaluation)</span>
+      </div>
+
+      <!-- Expert Settings Content -->
+      <div *ngIf="showExpertSettings" class="flex flex-col gap-6 pl-4 border-l-2 border-gray-200 animate-fade-in">
+         
+         <!-- Dataset Loading -->
+         <div class="flex flex-col gap-4">
+            <h4 class="text-lg font-medium text-gray-700">Dataset Configuration</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex flex-col gap-2">
+                    <label>User</label>
+                    <input pInputText [(ngModel)]="datasetUser" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label>Manifest Path</label>
+                    <input pInputText [(ngModel)]="datasetManifest" />
+                </div>
+            </div>
+            <p-button label="Load Dataset" (onClick)="onLoadDataset()" [disabled]="loading" styleClass="p-button-sm"></p-button>
+         </div>
+
+         <p-divider></p-divider>
+
+         <!-- Fine-tuning Configuration -->
+         <div class="flex flex-col gap-4">
+            <h4 class="text-lg font-medium text-gray-700">Fine-tuning</h4>
+            
+            <div class="flex flex-col gap-2">
+                <label>Finetune User</label>
+                <input pInputText [(ngModel)]="finetuneUser" class="w-full md:w-1/2" />
+            </div>
+
+            <div class="flex items-center gap-2 my-2">
+                <p-checkbox [(ngModel)]="useOptuna" [binary]="true" inputId="optuna"></p-checkbox>
+                <label for="optuna" class="cursor-pointer font-medium">Use Optuna (Hyperparameter Search)</label>
+                <i class="pi pi-info-circle text-blue-500" pTooltip="Optuna automates hyperparameter optimization. Note: This will take significantly longer than standard fine-tuning."></i>
+            </div>
+
+            <!-- Standard Params -->
+            <div *ngIf="!useOptuna" class="flex flex-col gap-2 animate-fade-in">
+                <label>Epochs</label>
+                <input pInputText type="number" [(ngModel)]="finetuneEpochs" class="w-full md:w-1/2" />
+            </div>
+
+            <!-- Optuna Params -->
+            <div *ngIf="useOptuna" class="flex flex-col gap-4 p-4 bg-gray-50 rounded border border-gray-200 animate-fade-in">
+                <div class="text-sm text-orange-600 mb-2">
+                    <i class="pi pi-exclamation-triangle"></i> Warning: Optuna search can take a long time depending on the number of trials and epochs.
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-2">
+                        <label>Number of Trials</label>
+                        <input pInputText type="number" [(ngModel)]="optunaTrials" />
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label>Epochs Range (Min - Max)</label>
+                        <div class="flex gap-2">
+                            <input pInputText type="number" [(ngModel)]="optunaEpochsMin" placeholder="Min" />
+                            <input pInputText type="number" [(ngModel)]="optunaEpochsMax" placeholder="Max" />
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label>Learning Rate Range (Min - Max)</label>
+                        <div class="flex gap-2">
+                            <input pInputText type="number" [(ngModel)]="optunaLrMin" placeholder="Min" />
+                            <input pInputText type="number" [(ngModel)]="optunaLrMax" placeholder="Max" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p-button [label]="useOptuna ? 'Start Optuna Search' : 'Start Finetuning'" (onClick)="onFineTune()" [disabled]="loading" [severity]="useOptuna ? 'help' : 'primary'"></p-button>
+         </div>
+
+         <p-divider></p-divider>
+
+         <!-- Evaluation -->
+         <div class="flex flex-col gap-4">
+            <h4 class="text-lg font-medium text-gray-700">Evaluation</h4>
+            <div class="flex flex-col gap-2">
+                <label>Eval Split</label>
+                <input pInputText [(ngModel)]="evalSplit" class="w-full md:w-1/2" />
+            </div>
+            <p-button label="Evaluate Model" (onClick)="onEvaluate()" [disabled]="loading" styleClass="p-button-sm p-button-secondary"></p-button>
+         </div>
+      </div>
+
+      <!-- Job Status -->
+      <div *ngIf="jobStatus" class="mt-4 p-4 bg-gray-50 border border-gray-200 rounded">
+        <h4 class="font-bold mb-2">Job Status</h4>
+        <div class="flex flex-col gap-1 text-sm">
+            <p><strong>ID:</strong> {{ jobStatus.job_id }}</p>
+            <p><strong>Status:</strong> <span [ngClass]="{'text-green-600': jobStatus.status === 'completed', 'text-red-600': jobStatus.status === 'failed', 'text-blue-600': jobStatus.status === 'running'}">{{ jobStatus.status }}</span></p>
+            <p><strong>Message:</strong> {{ jobStatus.message }}</p>
+            <pre *ngIf="jobStatus.result" class="bg-white p-2 rounded border border-gray-200 overflow-auto mt-2 max-h-60">{{ jobStatus.result | json }}</pre>
+        </div>
+      </div>
+
+    </div>
+  </p-card>
+</div>

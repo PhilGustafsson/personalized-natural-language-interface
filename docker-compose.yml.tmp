@@ -1,0 +1,53 @@
+version: '3.9'
+
+services:
+  stt-app:
+    build:
+      context: ./stt
+    image: stt-app:latest
+    container_name: stt-app
+    shm_size: '8gb'
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    volumes:
+      - ./app/backend/data:/app/data       # persist user data + SQLite DB
+      - ./app/backend/models:/app/models   # cache base models
+    ports:
+      - "5080:5080"
+    networks:
+      - pni_net
+
+  backend:
+    build: ./app/backend
+    image: pni-backend:latest
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./app/backend/data:/app/data
+      - ./app/backend/models:/app/models
+    environment:
+      - FLASK_ENV=development
+      - DATA_DIR=/app/data
+      - MODEL_DIR=/app/models
+      - TZ=Europe/Stockholm
+    networks:
+      - pni_net
+    depends_on:
+      - stt-app
+
+  frontend:
+    build: ./app/frontend
+    image: pni-frontend:latest
+    ports:
+      - "4200:80"
+    networks:
+      - pni_net
+    depends_on:
+      - backend
+
+networks:
+  pni_net:
+    driver: bridge

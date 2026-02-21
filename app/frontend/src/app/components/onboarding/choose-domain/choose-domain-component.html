@@ -1,0 +1,24 @@
+<div class="flex flex-col gap-6 max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-sm">
+  <h2 class="text-3xl font-bold text-slate-800">Choose How to Create Training Data</h2>
+  <p class="text-slate-600">Select how you want to create prompts for training your personalized voice models:</p>
+  
+  <div class="grid grid-cols-1 gap-4">
+    <div class="border border-slate-200 rounded-lg p-4 hover:border-blue-500 transition-colors">
+      <h3 class="font-semibold text-lg mb-2">📝 Read Predefined Prompts</h3>
+      <p class="text-sm text-slate-600 mb-3">Use our curated set of prompts covering common vocabulary and phrases</p>
+      <p-button label="Read Prompts" (onClick)="chooseReadPrompts()" styleClass="w-full"></p-button>
+    </div>
+    
+    <div class="border border-green-200 rounded-lg p-4 hover:border-green-500 transition-colors bg-green-50">
+      <h3 class="font-semibold text-lg mb-2">✨ Generate Custom Prompts with AI</h3>
+      <p class="text-sm text-slate-600 mb-3">Use AI to generate domain-specific prompts tailored to your needs (recommended)</p>
+      <p-button 
+        label="Generate with AI" 
+        icon="pi pi-sparkles"
+        (onClick)="chooseGeneratePrompts()" 
+        styleClass="w-full"
+        severity="success"
+      ></p-button>
+    </div>
+  </div>
+</div>

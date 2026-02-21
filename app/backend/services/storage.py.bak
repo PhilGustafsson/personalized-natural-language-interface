@@ -1,0 +1,13 @@
+# File management utility.
+
+import os
+from db import DATA_DIR
+
+
+def save_recording(profile_id, recording_id, recording_file):
+    user_dir = os.path.join(DATA_DIR, "profiles", profile_id, 'audio')
+    os.makedirs(user_dir, exist_ok=True)
+    filename = f"{recording_id}.wav"
+    filepath = os.path.join(user_dir, filename)
+    recording_file.save(filepath)
+    return filepath
